@@ -7,8 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "MyTabBarViewController.h"
+#import "GuidePageView.h"
 
 @interface AppDelegate ()
+//引导页
+@property (nonatomic,strong)GuidePageView * guideView;
+
+@property(nonatomic,strong) MyTabBarViewController * myTabBar;
 
 @end
 
@@ -16,8 +22,48 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.myTabBar = [[MyTabBarViewController alloc]init];
+    self.window.rootViewController = self.myTabBar;
+    
+    //引导页
+    [self createGuidePage];
+    
     return YES;
+}
+
+#pragma mark - 创建引导页
+-(void)createGuidePage
+{
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"isRuned"] boolValue])
+    {
+        NSArray * array = @[@"welcome2.png",
+                          @"welcome6.png",
+                          @"welcome7.png",
+                          @"welcome4.png"];
+        //创建引导页视图
+        self.guideView = [[GuidePageView alloc]initWithFrame:self.window.bounds namesArray:array];
+        [self.myTabBar.view addSubview:self.guideView];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"isRuned"];
+    }else
+    {
+        [self checkNetWorkState];
+    }
+    
+    //点击进入首页
+    [self.guideView.guideBtn addTarget:self action:@selector(beginExperience:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)beginExperience:(UIButton *)sender
+{
+    [self.guideView removeFromSuperview];
+    [self checkNetWorkState];
+}
+
+#pragma mark - 检测网络状态
+-(void)checkNetWorkState
+{
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
