@@ -41,6 +41,8 @@
     //右按钮
     self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.rightButton.frame = CGRectMake(0, 0, 44, 44);
+    [self.rightButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.rightButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.rightButton];
     
     //标题

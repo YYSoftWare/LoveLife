@@ -14,6 +14,17 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 //添加全局的头文件
+//数据请求
+#import "AFNetworking.h"
+//刷新
+#import "MJRefresh.h"
+//加载图片
+#import "UIButton+WebCache.h" //加载button上的图片
+#import "UIImageView+WebCache.h" //加载imageView上的图片
+//工厂类
+#import "FactoryUI.h"
+//活动指示器
+#import "MBProgressHUD.h"
 
 
 //全局宏定义
@@ -25,4 +36,12 @@
 //设置颜色
 #define RGB(r,g,b,a) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
 
+//数据接口
+//首页
+#define HOMEURL @"http://www.maimenghuo.com/v2/channels/16/items?limit=20&offset=0&gender=1&generation=2"//&offset=0
+//阅
+//美文
+#define ARTICALURL @"http://d.yixincao.com/interface/getdata.php?act=list&type=nuanwen&page=%d"
+//语录
+#define UTTERANCEURL @"http://api.10x.cn/d0c0ebbacc664252b1349e4d9562f6eb/367/tab1/%zd.txt"
 #endif

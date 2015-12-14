@@ -27,6 +27,8 @@
     
     //引导页
     [self createGuidePage];
+    //测试网络状态
+    [self checkNetWorkState];
     
     return YES;
 }
@@ -53,7 +55,7 @@
     //点击进入首页
     [self.guideView.guideBtn addTarget:self action:@selector(beginExperience:) forControlEvents:UIControlEventTouchUpInside];
 }
-
+//跳转进入首页
 - (void)beginExperience:(UIButton *)sender
 {
     [self.guideView removeFromSuperview];
@@ -63,7 +65,36 @@
 #pragma mark - 检测网络状态
 -(void)checkNetWorkState
 {
+    //创建一个用于测试的url
+    AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://www.apple.com"]];
+    //判断不同的网络状态
+    [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                [self createAlertView:@"您当前使用的是数据流量"];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                [self createAlertView:@"您当前使用的是Wifi"];
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                [self createAlertView:@"世界上最遥远的距离就是没网"];
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                [self createAlertView:@"网络状况不明确"];
+                break;
+                
+            default:
+                break;
+        }
+    }];
     
+}
+
+//网络提示
+-(void)createAlertView:(NSString *)message
+{
+    UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [alertView show];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

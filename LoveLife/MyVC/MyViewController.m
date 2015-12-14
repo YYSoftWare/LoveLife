@@ -7,12 +7,16 @@
 //
 
 #import "MyViewController.h"
+#import "MyCollectionViewController.h"
+#import "AppDelegate.h"
 
 @interface MyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
     //头部图片
     UIImageView * _headImageView;
+    //夜间模式
+    UIView * _darkView;
 }
 
 @end
@@ -41,13 +45,16 @@ static CGFloat kImageOriginHeight = 200;
     _headImageView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"welcome1"]];
     _headImageView.frame=CGRectMake(0, -kImageOriginHeight,SCREEN_W,kImageOriginHeight);
     [_tableView addSubview:_headImageView];
+    
+    //夜间模式遮罩view
+    _darkView = [FactoryUI createViewWithFrame:[UIScreen mainScreen].bounds];
 }
 
 #pragma mark - 创建tableView
 
 -(void)createTableView
 {
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
@@ -58,9 +65,18 @@ static CGFloat kImageOriginHeight = 200;
 }
 
 #pragma mark - 实现tableView的代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (section == 0)
+    {
+        return 3;
+    }
+    return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,9 +85,90 @@ static CGFloat kImageOriginHeight = 200;
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (indexPath.section == 0 && indexPath.row == 2)
+        {
+            UISwitch * swi = [[UISwitch alloc]initWithFrame:CGRectMake(SCREEN_W - 70,6, 40, 20)];
+            swi.onTintColor = [UIColor greenColor];
+            swi.tag = 10;
+            [swi addTarget:self action:@selector(switchOption:) forControlEvents:UIControlEventValueChanged];
+            [cell.contentView addSubview:swi];
+        }
     }
     
+    //赋值
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+        {
+            cell.imageView.image = [UIImage imageNamed:@"LikeBtn1"];
+            cell.textLabel.text = @"我的喜欢";
+        }
+        else if(indexPath.row == 1)
+        {
+            cell.imageView.image = [UIImage imageNamed:@"LikeBtn1"];
+            cell.textLabel.text = @"清除缓存";
+        }
+        else
+        {
+            cell.imageView.image = [UIImage imageNamed:@"LikeBtn1"];
+            cell.textLabel.text = @"夜间模式";
+        }
+        
+    }
+    else
+    {
+        cell.imageView.image = [UIImage imageNamed:@"LikeBtn1"];
+        cell.textLabel.text = @"关于";
+    }
+    
+    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row == 0)
+        {
+            //收藏
+            MyCollectionViewController * myCollectionView = [[MyCollectionViewController alloc]init];
+            myCollectionView.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:myCollectionView animated:YES];
+            
+        }
+        else if(indexPath.row == 1)
+        {
+            //清除缓存
+            [self folderSizeWithPath:[self getPath]];
+        }
+    }
+    else
+    {
+        //关于
+        
+    }
+}
+
+#pragma mark - 夜间模式响应方法
+-(void)switchOption:(UISwitch *)swi
+{
+    if (swi.on == YES)
+    {
+        UIApplication * app = [UIApplication sharedApplication];
+        AppDelegate * delegate = app.delegate;
+        _darkView.backgroundColor = [UIColor blackColor];
+        _darkView.alpha = 0.3;
+        //关闭用户交互属性
+        _darkView.userInteractionEnabled = NO;
+        [delegate.window addSubview:_darkView];
+    }
+    else
+    {
+        [_darkView removeFromSuperview];
+    }
+    
 }
 
 #pragma mark - scrollView的代理方法
@@ -92,6 +189,97 @@ static CGFloat kImageOriginHeight = 200;
         _headImageView.frame = f;
     }
 }
+
+#pragma mark - 第一步，计算缓存文件的大小
+//首先获取缓存文件的路径
+-(NSString *)getPath
+{
+    //沙盒目录下library文件夹下的cache文件夹就是缓存文件夹
+    NSString * path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    return path;
+}
+
+-(CGFloat)folderSizeWithPath:(NSString *)path
+{
+    //初始化文件管理类
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    
+    float folderSize = 0.0;
+    
+    if ([fileManager fileExistsAtPath:path])
+    {
+        //如果存在
+        //计算文件的大小
+        NSArray * fileArray = [fileManager subpathsAtPath:path];
+        for (NSString * fileName in fileArray)
+        {
+            //获取每个文件的路径
+            NSString * filePath = [path stringByAppendingPathComponent:fileName];
+            //计算每个子文件的大小
+            long fileSize = [fileManager attributesOfItemAtPath:filePath error:nil].fileSize;//字节数
+            folderSize = folderSize + fileSize / 1024.0 / 1024.0;
+            
+        }
+        
+        //删除缓存文件
+        [self deleteFileSize:folderSize];
+        
+        return folderSize;
+    }
+    
+    return 0;
+    
+}
+#pragma mark - 弹出是否删除的一个提示框，并且告诉用户目前有多少缓存
+-(void)deleteFileSize:(CGFloat)folderSize
+{
+    if (folderSize > 0.01)
+    {
+        UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"缓存大小:%.2fM,是否清除？",folderSize] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alertView show];
+    }
+    else
+    {
+        UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:@"缓存已全部清理" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alertView show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        //彻底删除文件
+        [self clearCacheWith:[self getPath]];
+    }
+}
+
+-(void)clearCacheWith:(NSString *)path
+{
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:path])
+    {
+        NSArray * fileArray = [fileManager subpathsAtPath:path];
+        for (NSString * fileName in fileArray)
+        {
+            //可以过滤掉特殊格式的文件
+            if ([fileName hasSuffix:@".png"])
+            {
+                NSLog(@"不删除");
+            }
+            else
+            {
+                //获取每个子文件的路径
+                NSString * filePath = [path stringByAppendingPathComponent:fileName];
+                //移除指定路径下的文件
+                [fileManager removeItemAtPath:filePath error:nil];
+            }
+        }
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

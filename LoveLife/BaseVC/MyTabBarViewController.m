@@ -59,9 +59,9 @@
 -(void)createTabBar
 {
     //未选中的图片
-    NSArray * unselectedImageArray = @[@"ic_tab_home_normal",@"ic_tab_select_normal@2x.png",  @"ic_tab_category_normal@2x.png",@"ic_menu_01_nor@2x.png",@"ic_tab_profile_normal_female@2x.png"];
+    NSArray * unselectedImageArray = @[@"ic_tab_home_normal",@"ic_tab_select_normal@2x.png",  @"ic_tab_category_normal@2x.png",@"health",@"ic_tab_profile_normal_female@2x.png"];
     //选中的图片
-    NSArray * selectedImageArray = @[@"ic_tab_home_selected.png",@"ic_tab_select_selected@2x.png", @"ic_tab_category_selected@2x.png", @"ic_menu_01_hl@2x.png",@"ic_tab_profile_selected_female@2x.png"];
+    NSArray * selectedImageArray = @[@"ic_tab_home_selected.png",@"ic_tab_select_selected@2x.png", @"ic_tab_category_selected@2x.png", @"health2",@"ic_tab_profile_selected_female@2x.png"];
     //标题
     NSArray * titleArray = @[@"首页",@"阅读",@"美食",@"健康",@"我的"];
     

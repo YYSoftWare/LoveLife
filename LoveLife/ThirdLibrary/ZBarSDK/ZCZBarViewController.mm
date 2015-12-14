@@ -58,7 +58,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.numberOfLines = 2;
-    label.font=[UIFont systemFontOfSize:12];
+    label.font=[UIFont systemFontOfSize:14];
     label.backgroundColor = [UIColor clearColor];
     [bgImageView addSubview:label];
     
