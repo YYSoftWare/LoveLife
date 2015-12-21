@@ -38,10 +38,17 @@
 
 //数据接口
 //首页
-#define HOMEURL @"http://www.maimenghuo.com/v2/channels/16/items?limit=20&offset=0&gender=1&generation=2"//&offset=0
-//阅
+#define HOMEURL @"http://open4.bantangapp.com/recommend/index?client_id=bt_app_android&client_secret=ffcda7a1c4ff338e05c42e7972ba7b8d&page=1&pagesize=20"
+//首页详情
+#define HOMEDETAIL @"http://open4.bantangapp.com/topic/info?client_id=bt_app_android&client_secret=ffcda7a1c4ff338e05c42e7972ba7b8d&id=%zd"
+//阅读
 //美文
 #define ARTICALURL @"http://d.yixincao.com/interface/getdata.php?act=list&type=nuanwen&page=%d"
+//美文详情
+#define ARTICALDETAILURL @"http://d.yixincao.com/detailshow.php?id=%@&from=ios"
 //语录
 #define UTTERANCEURL @"http://api.10x.cn/d0c0ebbacc664252b1349e4d9562f6eb/367/tab1/%zd.txt"
+
+//美食
+#define FOODURL @"http://api.izhangchu.com:/"
 #endif

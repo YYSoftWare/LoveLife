@@ -40,7 +40,7 @@
 
 -(void)configUI:(ArticalModel *)model
 {
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:model.pic]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:model.pic] placeholderImage:[UIImage imageNamed:@"special_palcehold"]];
     _titleLabel.text = model.title;
     _authorLabel.text = model.author;
     _timeLabel.text = model.createtime;
