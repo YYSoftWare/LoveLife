@@ -14,5 +14,7 @@
 @property(nonatomic,copy) NSString * dataId;
 //菜名
 @property(nonatomic,copy) NSString * NavTitle;
+//视频url
+@property(nonatomic,strong) NSString * videoUrl;
 
 @end

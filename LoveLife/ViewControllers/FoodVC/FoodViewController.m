@@ -206,6 +206,12 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FoodDetailViewController * detailVC =[[FoodDetailViewController alloc]init];
+    
+    //传值
+    FoodModel * model = self.dataArray[indexPath.row];
+    detailVC.dataId = model.dishes_id;
+    detailVC.NavTitle = model.title;
+    detailVC.videoUrl = model.video;
     detailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
