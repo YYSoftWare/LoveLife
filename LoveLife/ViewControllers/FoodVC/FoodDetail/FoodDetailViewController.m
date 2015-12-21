@@ -25,7 +25,10 @@
     
     UITableView * _tableView;
 }
+//数据源
 @property(nonatomic,strong) NSMutableArray * dataArray;
+//model
+@property(nonatomic,strong) DetailModel * model;
 
 @end
 
@@ -60,12 +63,12 @@
         if ([responseObject[@"code"] intValue] == 0)
         {
             NSDictionary * detailDic = responseObject[@"data"];
-            DetailModel * model = [[DetailModel alloc]init];
-            model.image = detailDic[@"image"];
-            model.dishes_name= detailDic[@"dishes_name"];
-            model.material_desc = detailDic[@"material_desc"];
-            model.step = detailDic[@"step"];
-            for (NSDictionary * dic in model.step)
+            _model = [[DetailModel alloc]init];
+            _model.image = detailDic[@"image"];
+            _model.dishes_name= detailDic[@"dishes_name"];
+            _model.material_desc = detailDic[@"material_desc"];
+            _model.step = detailDic[@"step"];
+            for (NSDictionary * dic in _model.step)
             {
                 StepModel * stepModel = [[StepModel alloc]init];
                 stepModel.dishes_step_desc = dic[@"dishes_step_desc"];
@@ -73,7 +76,7 @@
                 [self.dataArray addObject:stepModel];
             }
             
-            [self refreshUI:model];
+            [self refreshUI:_model];
             [_tableView reloadData];
             
         }
@@ -88,6 +91,10 @@
     [_mainImageView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:[UIImage imageNamed:@""]];
     _titleLabel.text = model.dishes_name;
     _detailLabel.text = model.material_desc;
+    
+    //难易程度
+    NSArray * array = @[@"",@"",@""];
+    
 }
 
 #pragma mark - 创建头部视图
@@ -103,7 +110,7 @@
     [_mainBgView addSubview:_mainImageView];
     
     //返回按钮
-    UIButton * backButton = [FactoryUI createButtonWithFrame:CGRectMake(10, 10, 30, 30) title:nil titleColor:nil imageName:@"iconfont-fanhui" backgroundImageName:nil target:self selector:@selector(leftButtonClick)];
+    UIButton * backButton = [FactoryUI createButtonWithFrame:CGRectMake(10, 10, 30, 30) title:nil titleColor:nil imageName:@"iconfont-back" backgroundImageName:nil target:self selector:@selector(leftButtonClick)];
     [_mainImageView addSubview:backButton];
     
     //名称
@@ -111,7 +118,7 @@
     [_mainBgView addSubview:_titleLabel];
     
     //详情描述
-    _detailLabel = [FactoryUI createLabelWithFrame:CGRectMake(10, _titleLabel.frame.size.height + _titleLabel.frame.origin.y + 5, SCREEN_W - 20, 40) text:nil textColor:[UIColor lightGrayColor] font:[UIFont systemFontOfSize:14]];
+    _detailLabel = [FactoryUI createLabelWithFrame:CGRectMake(10, _titleLabel.frame.size.height + _titleLabel.frame.origin.y + 5, SCREEN_W - 20, 50) text:nil textColor:[UIColor lightGrayColor] font:[UIFont systemFontOfSize:14]];
     _detailLabel.numberOfLines = 0;
     _detailLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [_mainBgView addSubview:_detailLabel];
@@ -136,6 +143,7 @@
         subButton.tag = 200 + i;
         [subView addSubview:subButton];
     }
+    
 }
 
 #pragma mark - 创建tableView
@@ -237,7 +245,41 @@
 //详细制作步骤视频按钮
 -(void)detailPlayerButtonClick:(UIButton *)button
 {
-    
+    switch (button.tag - 200) {
+        case 0:
+        {
+            //食材准备
+            FoodPlayerViewController * playerVC = [[FoodPlayerViewController alloc]initWithContentURL:[NSURL URLWithString:_model.material_video]];
+            //准备播放
+            [playerVC.moviePlayer prepareToPlay];
+            //播放
+            [playerVC.moviePlayer play];
+            //跳转页面
+            [self presentViewController:playerVC animated:YES completion:nil];
+        }
+            break;
+        case 1:
+        {
+            //制作步骤
+            FoodPlayerViewController * playerVC = [[FoodPlayerViewController alloc]initWithContentURL:[NSURL URLWithString:_model.process_video]];
+            //准备播放
+            [playerVC.moviePlayer prepareToPlay];
+            //播放
+            [playerVC.moviePlayer play];
+            //跳转页面
+            [self presentViewController:playerVC animated:YES completion:nil];
+        }
+            break;
+        case 2:
+        {
+            //下载
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 //主视频播放按钮

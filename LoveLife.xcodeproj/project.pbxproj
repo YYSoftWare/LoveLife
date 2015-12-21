@@ -120,6 +120,12 @@
 		DDBC6CB71C2800620077EC6B /* iconfont-bofang-4.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CB61C2800620077EC6B /* iconfont-bofang-4.png */; };
 		DDBC6CB91C28011D0077EC6B /* iconfont-xiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CB81C28011D0077EC6B /* iconfont-xiazai.png */; };
 		DDBC6CBB1C2803950077EC6B /* iconfont-fanhui.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CBA1C2803950077EC6B /* iconfont-fanhui.png */; };
+		DDBC6CBD1C281E8E0077EC6B /* iconfont-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CBC1C281E8E0077EC6B /* iconfont-back.png */; };
+		DDBC6CBF1C28276D0077EC6B /* iconfont-yule.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CBE1C28276D0077EC6B /* iconfont-yule.png */; };
+		DDBC6CC11C2827770077EC6B /* iconfont-yule-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CC01C2827770077EC6B /* iconfont-yule-2.png */; };
+		DDBC6CC41C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CC21C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png */; };
+		DDBC6CC51C2827EE0077EC6B /* iconfont-iconfontmeishi.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CC31C2827EE0077EC6B /* iconfont-iconfontmeishi.png */; };
+		DDBC6CC91C283F540077EC6B /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBC6CC81C283F540077EC6B /* MyCollectionViewCell.m */; };
 		DDCB97711C27C64100A5DAD8 /* GuidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCB97501C27C64100A5DAD8 /* GuidePageView.m */; };
 		DDCB97721C27C64100A5DAD8 /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCB97521C27C64100A5DAD8 /* MyTabBarViewController.m */; };
 		DDCB97731C27C64100A5DAD8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCB97541C27C64100A5DAD8 /* RootViewController.m */; };
@@ -360,6 +366,13 @@
 		DDBC6CB61C2800620077EC6B /* iconfont-bofang-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-bofang-4.png"; sourceTree = "<group>"; };
 		DDBC6CB81C28011D0077EC6B /* iconfont-xiazai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-xiazai.png"; sourceTree = "<group>"; };
 		DDBC6CBA1C2803950077EC6B /* iconfont-fanhui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-fanhui.png"; sourceTree = "<group>"; };
+		DDBC6CBC1C281E8E0077EC6B /* iconfont-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-back.png"; sourceTree = "<group>"; };
+		DDBC6CBE1C28276D0077EC6B /* iconfont-yule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-yule.png"; sourceTree = "<group>"; };
+		DDBC6CC01C2827770077EC6B /* iconfont-yule-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-yule-2.png"; sourceTree = "<group>"; };
+		DDBC6CC21C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-iconfontmeishi-2.png"; sourceTree = "<group>"; };
+		DDBC6CC31C2827EE0077EC6B /* iconfont-iconfontmeishi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-iconfontmeishi.png"; sourceTree = "<group>"; };
+		DDBC6CC71C283F540077EC6B /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		DDBC6CC81C283F540077EC6B /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
 		DDCB974F1C27C64100A5DAD8 /* GuidePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageView.h; sourceTree = "<group>"; };
 		DDCB97501C27C64100A5DAD8 /* GuidePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageView.m; sourceTree = "<group>"; };
 		DDCB97511C27C64100A5DAD8 /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
@@ -611,6 +624,10 @@
 		DD4040B81C1881A0007EA804 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				DDBC6CC21C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png */,
+				DDBC6CC31C2827EE0077EC6B /* iconfont-iconfontmeishi.png */,
+				DDBC6CBE1C28276D0077EC6B /* iconfont-yule.png */,
+				DDBC6CC01C2827770077EC6B /* iconfont-yule-2.png */,
 				DD7A0FFB1C19C14A004D67DE /* health.png */,
 				DD7A0FFC1C19C14A004D67DE /* health2.png */,
 				DD4040B91C1881A0007EA804 /* ic_tab_category_normal@2x.png */,
@@ -793,6 +810,7 @@
 		DD8318D51C1FC311003FE458 /* DetailImage */ = {
 			isa = PBXGroup;
 			children = (
+				DDBC6CBC1C281E8E0077EC6B /* iconfont-back.png */,
 				DDBC6CBA1C2803950077EC6B /* iconfont-fanhui.png */,
 				DDBC6CB81C28011D0077EC6B /* iconfont-xiazai.png */,
 				DDBC6CB61C2800620077EC6B /* iconfont-bofang-4.png */,
@@ -937,6 +955,7 @@
 		DD9E42951C1EA3840042DB6E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DDBC6CC61C283F0D0077EC6B /* FunCell */,
 				DD9E42961C1EA3970042DB6E /* ReadCell */,
 				DD804DF71C2697BE00FDB63A /* FoodCell */,
 			);
@@ -952,6 +971,15 @@
 				DD9E429B1C1EA3BE0042DB6E /* UtteranceTableViewCell.m */,
 			);
 			path = ReadCell;
+			sourceTree = "<group>";
+		};
+		DDBC6CC61C283F0D0077EC6B /* FunCell */ = {
+			isa = PBXGroup;
+			children = (
+				DDBC6CC71C283F540077EC6B /* MyCollectionViewCell.h */,
+				DDBC6CC81C283F540077EC6B /* MyCollectionViewCell.m */,
+			);
+			path = FunCell;
 			sourceTree = "<group>";
 		};
 		DDCB974D1C27C64100A5DAD8 /* ViewControllers */ = {
@@ -1186,7 +1214,9 @@
 				DDCB97921C27EC0800A5DAD8 /* iconfont-qq-2.png in Resources */,
 				DD9898ED1C19555800CED7D8 /* qrcode_scan_btn_photo_nor@2x.png in Resources */,
 				DD4040CD1C1881A0007EA804 /* ic_tab_profile_normal_female@2x.png in Resources */,
+				DDBC6CBD1C281E8E0077EC6B /* iconfont-back.png in Resources */,
 				DD4040D11C1881A0007EA804 /* welcome1.png in Resources */,
+				DDBC6CBF1C28276D0077EC6B /* iconfont-yule.png in Resources */,
 				DD403FF21C181B78007EA804 /* Main.storyboard in Resources */,
 				DD9898E51C19555800CED7D8 /* qrcode_scan_bar@2x.png in Resources */,
 				DDBC6CB91C28011D0077EC6B /* iconfont-xiazai.png in Resources */,
@@ -1205,12 +1235,14 @@
 				DD4040CA1C1881A0007EA804 /* ic_tab_category_selected@2x.png in Resources */,
 				DD4040D51C1881A0007EA804 /* welcome5.png in Resources */,
 				DD9898B91C191B3C00CED7D8 /* icon_function.png in Resources */,
+				DDBC6CC41C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png in Resources */,
 				DDB91DD11C2161730009FA10 /* iconfont-shoucangweishoucang-2.png in Resources */,
 				DD4040CC1C1881A0007EA804 /* ic_tab_home_selected@2x.png in Resources */,
 				DD4040D71C1881A0007EA804 /* welcome7.png in Resources */,
 				DD9899071C19732A00CED7D8 /* LinkedIn.png in Resources */,
 				DD7A0FFE1C19C14A004D67DE /* health2.png in Resources */,
 				DD4040D21C1881A0007EA804 /* welcome2.png in Resources */,
+				DDBC6CC51C2827EE0077EC6B /* iconfont-iconfontmeishi.png in Resources */,
 				DD4040CF1C1881A0007EA804 /* ic_tab_select_normal@2x.png in Resources */,
 				DD9898E71C19555800CED7D8 /* qrcode_scan_bg_Green_iphone5@2x.png in Resources */,
 				DDCB97971C27EC1000A5DAD8 /* iconfont-weixin.png in Resources */,
@@ -1227,6 +1259,7 @@
 				DD403FF71C181B78007EA804 /* LaunchScreen.xib in Resources */,
 				DD4040D31C1881A0007EA804 /* welcome3.png in Resources */,
 				DD10489C1C1AAB8B00189672 /* LikeBtn.png in Resources */,
+				DDBC6CC11C2827770077EC6B /* iconfont-yule-2.png in Resources */,
 				DDCB97831C27C7D100A5DAD8 /* iconfont-bofang.png in Resources */,
 				DDEAD8DD1C219B2700349FDC /* iconfont-guanyu.png in Resources */,
 				DD7A100C1C19CFF2004D67DE /* suite5_heartbeat_background@3x.png in Resources */,
@@ -1259,6 +1292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDCB97791C27C64100A5DAD8 /* MyViewController.m in Sources */,
+				DDBC6CC91C283F540077EC6B /* MyCollectionViewCell.m in Sources */,
 				DDCB977C1C27C64100A5DAD8 /* ReadViewController.m in Sources */,
 				DD804DFD1C2697EE00FDB63A /* FoodCollectionViewCell.m in Sources */,
 				DD4040561C186723007EA804 /* UIImage+GIF.m in Sources */,
