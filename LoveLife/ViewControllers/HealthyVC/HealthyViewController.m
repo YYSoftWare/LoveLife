@@ -9,13 +9,16 @@
 
 #import "HealthyViewController.h"
 #import "MyCollectionViewCell.h"
+#import "MusicViewController.h"
 
 @interface HealthyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     UICollectionView * _collectionView;
 }
 //数据源
-@property(nonatomic,strong) NSMutableArray * dataArray;
+@property(nonatomic,strong) NSArray * nameArray;
+@property(nonatomic,strong) NSArray * urlArray;
+@property(nonatomic,strong) NSArray * imageArray;
 
 @end
 
@@ -31,10 +34,9 @@
 #pragma mark - 数据
 -(void)getData
 {
-    NSArray * nameArray = @[@"流行",@"新歌",@"华语",@"英语",@"日语",@"轻音乐",@"民谣",@"韩语",@"歌曲排行榜"];
-    NSArray * urlArray = @[liuxing,xinge,huayu,yingyu,riyu,qingyinyue,minyao,hanyu,paihangbang];
-    NSArray * imageArray = @[@"",@"",@"",@"",@"",@"",@"",@"",@""];
-    
+    self.nameArray = @[@"流行",@"新歌",@"华语",@"英语",@"日语",@"轻音乐",@"民谣",@"韩语",@"歌曲排行榜"];
+    self.urlArray = @[liuxing,xinge,huayu,yingyu,riyu,qingyinyue,minyao,hanyu,paihangbang];
+    self.imageArray = @[@"shili0",@"shili1",@"shili2",@"shili8",@"shili10",@"shili19",@"shili13",@"shili15",@"shili24"];
 }
 
 #pragma mark - 设置导航
@@ -55,7 +57,7 @@
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     //创建网格对象
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowLayout];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 10, SCREEN_W, SCREEN_H + 10) collectionViewLayout:flowLayout];
     //设置代理
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
@@ -71,19 +73,19 @@
 //返回section的个数
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 4;
+    return 1;
 }
 //返回每个section对应的item的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    return self.imageArray.count;
 }
 //创建cell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg",(long)indexPath.item]];
-    cell.label.text = [NSString stringWithFormat:@"美女%ld号",(long)indexPath.item];
+    cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.item]];
+    cell.label.text = self.nameArray[indexPath.item];
     return cell;
     
     //设置渐变动画
@@ -116,6 +118,16 @@
     return 10;
 }
 
+//点击方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MusicViewController * VC = [[MusicViewController alloc]init];
+    //传值
+    VC.urlString = self.urlArray[indexPath.item];
+    VC.typeString = self.nameArray[indexPath.item];
+    VC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:VC animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

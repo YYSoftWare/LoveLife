@@ -30,7 +30,7 @@
     self.label = [[UILabel alloc]initWithFrame:CGRectMake(0,0, self.imageView.frame.size.width, 25)];
     self.label.textColor = [UIColor whiteColor];
     self.label.textAlignment = NSTextAlignmentCenter;
-    self.label.font = [UIFont systemFontOfSize:13];
+    self.label.font = [UIFont boldSystemFontOfSize:18];
     self.label.center = self.imageView.center;
     [self.contentView addSubview:self.label];
 }

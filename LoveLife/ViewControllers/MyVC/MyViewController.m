@@ -60,6 +60,7 @@ static CGFloat kImageOriginHeight = 200;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     _tableView.tableFooterView = [[UIView alloc]init];
+    _tableView.separatorColor= RGB(255,156,187,1);
     
     //tableView的内容由kImageOriginHeight 处开始显示。
     _tableView.contentInset=UIEdgeInsetsMake(kImageOriginHeight,0,0,0);

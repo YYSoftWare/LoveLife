@@ -53,6 +53,8 @@
     _detailLabel.text = model.detail;
 }
 
+
+
 -(void)playButtonClick
 {
     if ([_delegate respondsToSelector:@selector(deliverModel:)])
