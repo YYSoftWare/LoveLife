@@ -25,6 +25,16 @@
     [super viewDidLoad];
     [self settingNav];
     [self createUI];
+    [self getData];
+}
+
+#pragma mark - 数据
+-(void)getData
+{
+    NSArray * nameArray = @[@"流行",@"新歌",@"华语",@"英语",@"日语",@"轻音乐",@"民谣",@"韩语",@"歌曲排行榜"];
+    NSArray * urlArray = @[liuxing,xinge,huayu,yingyu,riyu,qingyinyue,minyao,hanyu,paihangbang];
+    NSArray * imageArray = @[@"",@"",@"",@"",@"",@"",@"",@"",@""];
+    
 }
 
 #pragma mark - 设置导航
@@ -45,7 +55,7 @@
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     //创建网格对象
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowLayout];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowLayout];
     //设置代理
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
