@@ -24,7 +24,7 @@
 {
     _imageView = [FactoryUI createImageViewWithFrame:CGRectMake(10, 10, 120, 90) imageName:nil];
     [self.contentView addSubview:_imageView];
-    _titleLabel = [FactoryUI createLabelWithFrame:CGRectMake(_imageView.frame.size.width + _imageView.frame.origin.x + 10, 25, SCREEN_W - 20 - 10 - _imageView.frame.size.width, 40) text:nil textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:18]];
+    _titleLabel = [FactoryUI createLabelWithFrame:CGRectMake(_imageView.frame.size.width + _imageView.frame.origin.x + 15, 25, SCREEN_W - 20 - 10 - _imageView.frame.size.width, 40) text:nil textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:18]];
     _titleLabel.numberOfLines = 0;
     _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _titleLabel.textAlignment = NSTextAlignmentLeft;

@@ -35,7 +35,7 @@
     [super viewDidLoad];
     [self settingNav];
     [self createBgImageView];
-    //[self loadData];
+    [self loadData];
 }
 
 #pragma mark -  请求数据

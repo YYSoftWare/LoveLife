@@ -122,6 +122,8 @@
     if (!cell) {
         cell = [[MusicCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //设置尾部样式
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     if (self.dataArray) {

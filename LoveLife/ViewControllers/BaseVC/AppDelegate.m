@@ -10,6 +10,14 @@
 #import "MyTabBarViewController.h"
 #import "GuidePageView.h"
 
+#import "UMSocial.h"
+//支持qq
+#import "UMSocialQQHandler.h"
+//支持微信
+#import "UMSocialWechatHandler.h"
+//支持新浪微博的
+#import "UMSocialSinaHandler.h"
+
 @interface AppDelegate ()
 //引导页
 @property (nonatomic,strong)GuidePageView * guideView;
@@ -29,6 +37,8 @@
     [self createGuidePage];
     //测试网络状态
     [self checkNetWorkState];
+    //注册友盟
+    [self addUMShare];
     
     return YES;
 }
@@ -95,6 +105,25 @@
 {
     UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
     [alertView show];
+}
+
+#pragma mark - 友盟分享和第三方登录
+-(void)addUMShare
+{
+    //设置友盟的appkey
+    [UMSocialData setAppKey:@"507fcab25270157b37000010"];
+    
+    //设置qq的appid，appkey和url
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:nil];
+    
+    //设置微信的appid和appSecret
+    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:nil];
+    
+    //设置新浪微博的SSO开关
+    [UMSocialSinaHandler openSSOWithRedirectURL:nil];
+    
+    //隐藏未安装的微信和qq的客户端
+    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ, UMShareToQzone, UMShareToWechatTimeline, UMShareToWechatTimeline]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

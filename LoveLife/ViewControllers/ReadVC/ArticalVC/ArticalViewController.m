@@ -126,6 +126,8 @@
         cell = [[ArticalTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
         //取消选中状态
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //设置尾部样式
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     if (self.dataArray1)
