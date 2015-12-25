@@ -7,15 +7,28 @@
 //
 
 #import "ArticalDetailViewController.h"
+#import "UMSocial.h"
+#import "GDDataManager.h"
 
 @interface ArticalDetailViewController ()
 {
     UIWebView * _webView;
+    //收藏按钮
+    UIButton * _collectButton;
 }
 
 @end
 
 @implementation ArticalDetailViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    GDDataManager * manager = [GDDataManager shareManager];
+    __block BOOL isHas = [manager findDataWithTitle:self.model.title];
+    if (isHas) {
+        _collectButton.selected = YES;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,8 +50,13 @@
 {
     _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     _webView.scalesPageToFit = YES;
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:ARTICALDETAILURL,self.stringUrl]]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:ARTICALDETAILURL,self.model.dataID]]]];
     [self.view addSubview:_webView];
+    
+    //收藏按钮
+    UIButton * collectButton = [FactoryUI createButtonWithFrame:CGRectMake(SCREEN_W - 60, 70, 30, 30) title:nil titleColor:nil imageName:@"iconfont-iconfontshoucang" backgroundImageName:nil target:self selector:@selector(collecButtonClick:)];
+    [collectButton setImage:[UIImage imageNamed:@"iconfont-iconfontshoucang-2"] forState:UIControlStateSelected];
+    [self.view addSubview:collectButton];
 }
 
 #pragma mark - 按钮响应函数
@@ -50,7 +68,41 @@
 //分享
 -(void)rightButtonClick
 {
+    UIImage * shareImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.model.pic]]];
     
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:APPKEY shareText:[NSString stringWithFormat:@"%@%@",self.model.title,[NSString stringWithFormat:ARTICALDETAILURL,self.model.dataID]] shareImage:shareImage shareToSnsNames:@[UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatTimeline,UMShareToWechatSession,UMShareToRenren] delegate:nil];
+}
+
+//收藏
+-(void)collecButtonClick:(UIButton *)button
+{
+    button.selected = YES;
+    if (button.selected == YES) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"收藏成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        //判断是否收藏过
+        GDDataManager * manager = [GDDataManager shareManager];
+        __block BOOL isHas = [manager findDataWithTitle:self.model.title];
+        
+        if (isHas)
+        {
+            [button setImage:[UIImage imageNamed:@"iconfont-iconfontshoucang"] forState:UIControlStateNormal];
+            [manager deleteWith:self.model.title];
+        }
+        else
+        {
+            [button setImage:[UIImage imageNamed:@"iconfont-iconfontshoucang-2"] forState:UIControlStateSelected];
+            NSDictionary * dict = @{@"id":self.model.dataID,@"title":self.model.title,@"pic":self.model.pic,@"createtime":self.model.createtime,@"author":self.model.author};
+            [manager saveDic:dict];
+        }
+        isHas = !isHas;
+        
+    }
+    else
+    {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"已取消收藏" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

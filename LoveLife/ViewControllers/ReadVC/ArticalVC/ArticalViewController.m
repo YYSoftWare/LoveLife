@@ -10,6 +10,7 @@
 #import "ArticalModel.h"
 #import "ArticalTableViewCell.h"
 #import "ArticalDetailViewController.h"
+#import "UMSocial.h"
 
 @interface ArticalViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -150,7 +151,7 @@
     ArticalDetailViewController * vc = [[ArticalDetailViewController alloc]init];
     vc.hidesBottomBarWhenPushed = YES;
     ArticalModel * model = self.dataArray1[indexPath.row];
-    vc.stringUrl = model.dataID;
+    vc.model = model;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

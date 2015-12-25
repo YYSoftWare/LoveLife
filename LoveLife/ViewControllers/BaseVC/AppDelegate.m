@@ -111,13 +111,13 @@
 -(void)addUMShare
 {
     //设置友盟的appkey
-    [UMSocialData setAppKey:@"507fcab25270157b37000010"];
+    [UMSocialData setAppKey:APPKEY];
     
     //设置qq的appid，appkey和url
-    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:nil];
+    [UMSocialQQHandler setQQWithAppId:@"1104908293" appKey:@" MnGtpPN5AiB6MNvj" url:nil];
     
     //设置微信的appid和appSecret
-    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:nil];
+    [UMSocialWechatHandler setWXAppId:@"wx12b249bcbf753e87" appSecret:@"0a9cd00c48ee47a9b23119086bcd3b30" url:nil];
     
     //设置新浪微博的SSO开关
     [UMSocialSinaHandler openSSOWithRedirectURL:nil];

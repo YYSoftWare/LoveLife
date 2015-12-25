@@ -7,16 +7,128 @@
 //
 
 #import "MyCollectionViewController.h"
+#import "ArticalTableViewCell.h"
+#import "ArticalModel.h"
+#import "GDDataManager.h"
+#import "ArticalDetailViewController.h"
 
-@interface MyCollectionViewController ()
+@interface MyCollectionViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView * _tableView;
+    //提示
+    UILabel * _label;
+}
+
+@property(nonatomic,strong) NSMutableArray * dataArray;
+@property(nonatomic,strong) NSMutableArray * selectArray;
 
 @end
 
 @implementation MyCollectionViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if(self.dataArray.count==0)
+    {
+        _label=[[UILabel alloc]initWithFrame:CGRectMake(0, (SCREEN_H - 30) / 2, SCREEN_W, 30)];
+        _label.textAlignment = NSTextAlignmentCenter;
+        _label.numberOfLines=0;
+        _label.lineBreakMode = NSLineBreakByWordWrapping;
+        _label.text=@"您还没有收藏哦！";
+        _label.textColor = [UIColor lightGrayColor];
+        _label.font = [UIFont systemFontOfSize:25];
+        [self.view addSubview:_label];
+    }
+    else
+    {
+        [_label removeFromSuperview];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self settingNav];
+    [self getData];
+    [self createTableView];
+    
+}
+
+#pragma mark - 获取数据库的数据
+-(void)getData
+{
+    GDDataManager * manager = [GDDataManager shareManager];
+    self.dataArray = [manager loadData];
+}
+
+#pragma mark - 创建tableView
+-(void)createTableView
+{
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    _tableView.separatorColor = RGB(255,156,187,1);
+    _tableView.tableFooterView = [[UIView alloc]init];
+    
+}
+
+#pragma mark - 实现tableView的代理方法
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ArticalTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ID"];
+    if (!cell) {
+        cell = [[ArticalTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    ArticalModel * model = self.dataArray[indexPath.row];
+    [cell configUI:model];
+    
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 135;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.selectArray addObject:indexPath];
+    ArticalDetailViewController * vc = [[ArticalDetailViewController alloc]init];
+    vc.model = self.dataArray[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.selectArray removeObject:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GDDataManager * manager=[GDDataManager shareManager];
+    
+    ArticalModel * model = self.dataArray[indexPath.row];
+    //删除数据，先删除数据库中的数据
+    [manager deleteWith:model.title];
+    
+    //删除界面数组的
+    [self.dataArray removeObjectAtIndex:indexPath.row];
+    [self.selectArray removeAllObjects];
+    //刷新界面
+    [_tableView reloadData];
+    
+}
+//编辑类型
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return UITableViewCellEditingStyleDelete;
 }
 
 #pragma mark - 设置导航
@@ -26,7 +138,7 @@
     [self.rightButton setTitle:@"编辑" forState:UIControlStateNormal];
     
     [self setLeftButtonSelector:@selector(leftButtonClick)];
-    [self setRightButtonSelector:@selector(rightButtonClick)];
+    [self setRightButtonSelector:@selector(rightButtonClick:)];
 }
 
 #pragma mark - 按钮响应事件
@@ -35,9 +147,43 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 //删除
--(void)rightButtonClick
+-(void)rightButtonClick:(UIButton *)button
 {
+    button.selected=!button.selected;
     
+    if (button.selected)
+    {
+        [button setTitle:@"删除" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [button setTitle:@"编辑" forState:UIControlStateNormal
+         ];
+    }
+    _tableView.editing=!_tableView.editing;
+    //在编辑期间被选择
+    //_tableView.allowsMultipleSelectionDuringEditing = YES;
+    
+    if (self.selectArray.count>0)
+    {
+        GDDataManager * manager=[GDDataManager shareManager];
+        for (int i=0; i<self.selectArray.count; i++)
+        {
+            NSIndexPath * path=self.selectArray[i];
+            ArticalModel * model=self.dataArray[path.row];
+            
+            [_dataArray replaceObjectAtIndex:path.row withObject:@""];
+            [manager deleteWith:model.title];
+            
+        }
+        [_dataArray removeObject:@""];
+        //数据源变的时候就要刷新数据,或者cell的格式变了得时候，这里还有reloadsection的，区的状态发生了变化或者是区里面的row方生了改变
+        [_tableView reloadData];
+        
+        [self.selectArray removeAllObjects];
+        
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

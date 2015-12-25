@@ -15,6 +15,11 @@
     UITableView * _tableView;
     //头部图片
     UIImageView * _headImageView;
+    //用户头像
+    UIImageView * _iconImageView;
+    //昵称
+    UILabel * _nameLabel;
+    
     //夜间模式
     UIView * _darkView;
 }
@@ -47,6 +52,15 @@ static CGFloat kImageOriginHeight = 200;
     _headImageView.frame=CGRectMake(0, -kImageOriginHeight,SCREEN_W,kImageOriginHeight);
     [_tableView addSubview:_headImageView];
     
+    //头像
+    _iconImageView = [FactoryUI createImageViewWithFrame:CGRectMake(0, 0, 60, 60) imageName:nil];
+    _iconImageView.center = _headImageView.center;
+    [_headImageView addSubview:_iconImageView];
+    //昵称
+    _nameLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, _iconImageView.center.y + _iconImageView.frame.size.height + 10, SCREEN_W, 20) text:@"yangyangyang" textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:15]];
+    [_headImageView addSubview:_nameLabel];
+    
+    
     //夜间模式遮罩view
     _darkView = [FactoryUI createViewWithFrame:[UIScreen mainScreen].bounds];
 }
@@ -76,7 +90,7 @@ static CGFloat kImageOriginHeight = 200;
 {
     if (section == 0)
     {
-        return 3;
+        return 4;
     }
     return 1;
 }
@@ -88,13 +102,16 @@ static CGFloat kImageOriginHeight = 200;
     {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ID"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if (indexPath.section == 0 && indexPath.row == 2)
+        if ((indexPath.section == 0 && indexPath.row == 2) || indexPath.row == 3)
         {
             UISwitch * swi = [[UISwitch alloc]initWithFrame:CGRectMake(SCREEN_W - 70,6, 40, 20)];
             swi.onTintColor = [UIColor greenColor];
-            swi.tag = 10;
+            swi.tag = 10 + indexPath.row;
             [swi addTarget:self action:@selector(switchOption:) forControlEvents:UIControlEventValueChanged];
             [cell.contentView addSubview:swi];
+        }
+        if ((indexPath.section == 0 && indexPath.row == 0)|| indexPath.row == 1 || indexPath.section == 1) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
     
@@ -111,10 +128,15 @@ static CGFloat kImageOriginHeight = 200;
             cell.imageView.image = [UIImage imageNamed:@"iconfont-lajitong"];
             cell.textLabel.text = @"清除缓存";
         }
-        else
+        else if(indexPath.row == 2)
         {
             cell.imageView.image = [UIImage imageNamed:@"iconfont-yejianmoshi"];
             cell.textLabel.text = @"夜间模式";
+        }
+        else
+        {
+            cell.imageView.image = [UIImage imageNamed:@"iconfont-zhengguiicon40"];
+            cell.textLabel.text = @"推送消息";
         }
         
     }
@@ -156,20 +178,29 @@ static CGFloat kImageOriginHeight = 200;
 #pragma mark - 夜间模式响应方法
 -(void)switchOption:(UISwitch *)swi
 {
-    if (swi.on == YES)
-    {
-        UIApplication * app = [UIApplication sharedApplication];
-        AppDelegate * delegate = app.delegate;
-        _darkView.backgroundColor = [UIColor blackColor];
-        _darkView.alpha = 0.3;
-        //关闭用户交互属性
-        _darkView.userInteractionEnabled = NO;
-        [delegate.window addSubview:_darkView];
+    if (swi.tag == 12) {
+        //清除缓存
+        if (swi.on == YES)
+        {
+            UIApplication * app = [UIApplication sharedApplication];
+            AppDelegate * delegate = app.delegate;
+            _darkView.backgroundColor = [UIColor blackColor];
+            _darkView.alpha = 0.3;
+            //关闭用户交互属性
+            _darkView.userInteractionEnabled = NO;
+            [delegate.window addSubview:_darkView];
+        }
+        else
+        {
+            [_darkView removeFromSuperview];
+        }
     }
     else
     {
-        [_darkView removeFromSuperview];
+        //推送消息
+        
     }
+    
     
 }
 

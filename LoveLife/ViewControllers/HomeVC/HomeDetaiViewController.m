@@ -176,7 +176,7 @@
 
 -(void)rightButtonClick:(UIButton *)button
 {
-    button.selected = YES;
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

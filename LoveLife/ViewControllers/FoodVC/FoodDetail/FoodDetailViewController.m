@@ -24,6 +24,11 @@
     UILabel * _detailLabel;
     
     UITableView * _tableView;
+    
+    //矢量
+    UILabel * _levelLabel;
+    UILabel * _timeLabel;
+    UILabel * _tasteLabel;
 }
 //数据源
 @property(nonatomic,strong) NSMutableArray * dataArray;
@@ -122,6 +127,25 @@
     _detailLabel.numberOfLines = 0;
     _detailLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [_mainBgView addSubview:_detailLabel];
+    
+    //难度
+    UIImageView * levelImageView = [FactoryUI createImageViewWithFrame:CGRectMake(30, _detailLabel.frame.size.height + _detailLabel.frame.origin.y + 20, 30, 30) imageName:@"矢量智能对象难易度"];
+    [_mainBgView addSubview:levelImageView];
+    _levelLabel = [FactoryUI createLabelWithFrame:CGRectMake(levelImageView.frame.origin.x - 20, levelImageView.frame.size.height + levelImageView.frame.origin.y + 5,levelImageView.frame.size.width + 40, 15) text:@"难度：适中" textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:10]];
+    _levelLabel.textAlignment = NSTextAlignmentCenter;
+    [_mainBgView addSubview:_levelLabel];
+    //时长
+    UIImageView * timeImageView = [FactoryUI createImageViewWithFrame:CGRectMake(levelImageView.frame.size.width + levelImageView.frame.origin.x + (SCREEN_W - 150) / 2, levelImageView.frame.origin.y, 30, 30) imageName:@"矢量智能对象时长"];
+    [_mainBgView addSubview:timeImageView];
+    _timeLabel = [FactoryUI createLabelWithFrame:CGRectMake(timeImageView.frame.origin.x - 20, _levelLabel.frame.origin.y,timeImageView.frame.size.width + 40, 15) text:@"时间：15分钟" textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:10]];
+    _timeLabel.textAlignment = NSTextAlignmentCenter;
+    [_mainBgView addSubview:_timeLabel];
+    //口味
+    UIImageView * tasteImageView = [FactoryUI createImageViewWithFrame:CGRectMake(timeImageView.frame.size.width + timeImageView.frame.origin.x + (SCREEN_W - 150) / 2, timeImageView.frame.origin.y, 30, 30) imageName:@"矢量智能对象口味"];
+    [_mainBgView addSubview:tasteImageView];
+    _tasteLabel = [FactoryUI createLabelWithFrame:CGRectMake(tasteImageView.frame.origin.x - 20,_levelLabel.frame.origin.y, tasteImageView.frame.size.width + 40, 15) text:@"口味：鲜" textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:10]];
+    _tasteLabel.textAlignment = NSTextAlignmentCenter;
+    [_mainBgView addSubview:_tasteLabel];
     
     //播放按钮
     UIButton * palyButton = [FactoryUI createButtonWithFrame:CGRectMake(0, 0, 50, 50) title:nil titleColor:nil imageName:@"iconfont-bofang-3" backgroundImageName:nil target:self selector:@selector(playButtonClick)];

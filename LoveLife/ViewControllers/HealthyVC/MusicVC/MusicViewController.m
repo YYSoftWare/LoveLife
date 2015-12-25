@@ -10,6 +10,8 @@
 #import "MusicViewController.h"
 #import "MusicModel.h"
 #import "MusicCell.h"
+//播放界面
+#import "MusicPlayerViewController.h"
 
 @interface MusicViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -137,6 +139,16 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 110;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MusicPlayerViewController * vc = [[MusicPlayerViewController alloc]init];
+    //传值
+    MusicModel * model = self.dataArray[indexPath.row];
+    vc.titleString = model.title;
+    //vc.imageUrl
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 按钮响应方法

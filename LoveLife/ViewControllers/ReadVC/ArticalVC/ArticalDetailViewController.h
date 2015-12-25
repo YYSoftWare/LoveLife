@@ -7,9 +7,10 @@
 //
 
 #import "RootViewController.h"
+#import "ArticalModel.h"
 
 @interface ArticalDetailViewController : RootViewController
 
-@property(nonatomic,copy) NSString * stringUrl;
+@property(nonatomic,strong) ArticalModel * model;
 
 @end
