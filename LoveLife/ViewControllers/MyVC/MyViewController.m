@@ -52,14 +52,16 @@ static CGFloat kImageOriginHeight = 200;
     _headImageView.frame=CGRectMake(0, -kImageOriginHeight,SCREEN_W,kImageOriginHeight);
     [_tableView addSubview:_headImageView];
     
+    
     //头像
-    _iconImageView = [FactoryUI createImageViewWithFrame:CGRectMake(0, 0, 60, 60) imageName:nil];
+    _iconImageView = [FactoryUI createImageViewWithFrame:CGRectMake(0, 0, 60, 60) imageName:@"5.jpg"];
     _iconImageView.center = _headImageView.center;
+    _iconImageView.layer.cornerRadius = _iconImageView.frame.size.width / 2;
+    _iconImageView.layer.masksToBounds = YES;
     [_headImageView addSubview:_iconImageView];
     //昵称
     _nameLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, _iconImageView.center.y + _iconImageView.frame.size.height + 10, SCREEN_W, 20) text:@"yangyangyang" textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:15]];
     [_headImageView addSubview:_nameLabel];
-    
     
     //夜间模式遮罩view
     _darkView = [FactoryUI createViewWithFrame:[UIScreen mainScreen].bounds];

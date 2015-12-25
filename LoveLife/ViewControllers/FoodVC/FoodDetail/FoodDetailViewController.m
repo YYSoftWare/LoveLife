@@ -119,17 +119,17 @@
     [_mainImageView addSubview:backButton];
     
     //名称
-    _titleLabel = [FactoryUI createLabelWithFrame:CGRectMake(10, _mainImageView.frame.size.height + 5, SCREEN_W - 20, 20) text:nil textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:20]];
+    _titleLabel = [FactoryUI createLabelWithFrame:CGRectMake(10, _mainImageView.frame.size.height + 15, SCREEN_W - 20, 20) text:nil textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:20]];
     [_mainBgView addSubview:_titleLabel];
     
     //详情描述
-    _detailLabel = [FactoryUI createLabelWithFrame:CGRectMake(10, _titleLabel.frame.size.height + _titleLabel.frame.origin.y + 5, SCREEN_W - 20, 50) text:nil textColor:[UIColor lightGrayColor] font:[UIFont systemFontOfSize:14]];
+    _detailLabel = [FactoryUI createLabelWithFrame:CGRectMake(10, _titleLabel.frame.size.height + _titleLabel.frame.origin.y + 10, SCREEN_W - 20, 50) text:nil textColor:[UIColor lightGrayColor] font:[UIFont systemFontOfSize:14]];
     _detailLabel.numberOfLines = 0;
     _detailLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [_mainBgView addSubview:_detailLabel];
     
     //难度
-    UIImageView * levelImageView = [FactoryUI createImageViewWithFrame:CGRectMake(30, _detailLabel.frame.size.height + _detailLabel.frame.origin.y + 20, 30, 30) imageName:@"矢量智能对象难易度"];
+    UIImageView * levelImageView = [FactoryUI createImageViewWithFrame:CGRectMake(30, SCREEN_H - 40, 30, 30) imageName:@"矢量智能对象难易度"];
     [_mainBgView addSubview:levelImageView];
     _levelLabel = [FactoryUI createLabelWithFrame:CGRectMake(levelImageView.frame.origin.x - 20, levelImageView.frame.size.height + levelImageView.frame.origin.y + 5,levelImageView.frame.size.width + 40, 15) text:@"难度：适中" textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:10]];
     _levelLabel.textAlignment = NSTextAlignmentCenter;
@@ -194,6 +194,7 @@
     StepCell * cell = [tableView dequeueReusableCellWithIdentifier:@"FoodDetailID"];
     if (!cell) {
         cell = [[StepCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FoodDetailID"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     if (self.dataArray) {
@@ -213,7 +214,7 @@
 {
     UILabel * label = [FactoryUI createLabelWithFrame:CGRectMake(0, 0, SCREEN_W, 40) text:@"制作步骤" textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:20]];
     label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
     label.textColor = [UIColor darkGrayColor];
     
     UIView * lineView = [FactoryUI createViewWithFrame:CGRectMake(0, 37, SCREEN_W, 3)];
