@@ -155,6 +155,10 @@
 		DD8557C11C2A31E10094DD6B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8557C01C2A31E10094DD6B /* CoreTelephony.framework */; };
 		DD8557C31C2A31EB0094DD6B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8557C21C2A31EB0094DD6B /* libstdc++.dylib */; };
 		DD8557C51C2A31F90094DD6B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8557C41C2A31F90094DD6B /* libz.dylib */; };
+		DD89B7811C3031F30092FE15 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD89B7801C3031F30092FE15 /* LoginViewController.m */; };
+		DD89B7861C3033DB0092FE15 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = DD89B7831C3033DB0092FE15 /* qq.png */; };
+		DD89B7871C3033DB0092FE15 /* sina.png in Resources */ = {isa = PBXBuildFile; fileRef = DD89B7841C3033DB0092FE15 /* sina.png */; };
+		DD89B7881C3033DB0092FE15 /* weixin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD89B7851C3033DB0092FE15 /* weixin.jpg */; };
 		DD8B9F9D1C2396B4002BF65C /* special_palcehold.png in Resources */ = {isa = PBXBuildFile; fileRef = DD8B9F9C1C2396B4002BF65C /* special_palcehold.png */; };
 		DD9898B91C191B3C00CED7D8 /* icon_function.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9898B81C191B3C00CED7D8 /* icon_function.png */; };
 		DD9898E41C19555800CED7D8 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9898D21C19555800CED7D8 /* libzbar.a */; };
@@ -509,6 +513,11 @@
 		DD8557C01C2A31E10094DD6B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		DD8557C21C2A31EB0094DD6B /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		DD8557C41C2A31F90094DD6B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DD89B77F1C3031F30092FE15 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		DD89B7801C3031F30092FE15 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		DD89B7831C3033DB0092FE15 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
+		DD89B7841C3033DB0092FE15 /* sina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sina.png; sourceTree = "<group>"; };
+		DD89B7851C3033DB0092FE15 /* weixin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = weixin.jpg; sourceTree = "<group>"; };
 		DD8B9F9C1C2396B4002BF65C /* special_palcehold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = special_palcehold.png; sourceTree = "<group>"; };
 		DD9898B61C19104700CED7D8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		DD9898B81C191B3C00CED7D8 /* icon_function.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_function.png; sourceTree = "<group>"; };
@@ -855,6 +864,7 @@
 		DD4040B71C1881A0007EA804 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DD89B7821C3033DB0092FE15 /* logoImage */,
 				DDA076901C28E4D900E3E856 /* Music */,
 				DDCB97811C27C7D100A5DAD8 /* Food */,
 				DD8318D51C1FC311003FE458 /* DetailImage */,
@@ -1335,6 +1345,16 @@
 			path = LoveLife/Frameworks;
 			sourceTree = "<group>";
 		};
+		DD89B7821C3033DB0092FE15 /* logoImage */ = {
+			isa = PBXGroup;
+			children = (
+				DD89B7831C3033DB0092FE15 /* qq.png */,
+				DD89B7841C3033DB0092FE15 /* sina.png */,
+				DD89B7851C3033DB0092FE15 /* weixin.jpg */,
+			);
+			path = logoImage;
+			sourceTree = "<group>";
+		};
 		DD9898B71C191B3C00CED7D8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1535,6 +1555,15 @@
 			path = FunModel;
 			sourceTree = "<group>";
 		};
+		DDB7BBC21C30315C00457C0E /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				DD89B77F1C3031F30092FE15 /* LoginViewController.h */,
+				DD89B7801C3031F30092FE15 /* LoginViewController.m */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
 		DDBC6CC61C283F0D0077EC6B /* FunCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1548,6 +1577,7 @@
 		DDCB974D1C27C64100A5DAD8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DDB7BBC21C30315C00457C0E /* LoginVC */,
 				DDCB974E1C27C64100A5DAD8 /* BaseVC */,
 				DD6B82FF1C301ADC00C7BDFE /* WeatherVC */,
 				DDCB97551C27C64100A5DAD8 /* FoodVC */,
@@ -1790,6 +1820,7 @@
 				DD6B90D21C2D33C6009C784E /* 矢量智能对象口味@3x.png in Resources */,
 				DD7A0FFA1C19BFC3004D67DE /* 2vm.png in Resources */,
 				DDCB97921C27EC0800A5DAD8 /* iconfont-qq-2.png in Resources */,
+				DD89B7871C3033DB0092FE15 /* sina.png in Resources */,
 				DDA076A21C28E4D900E3E856 /* shili8.png in Resources */,
 				DD8557951C2A30560094DD6B /* UMSCommentInputControlleriPad.xib in Resources */,
 				DD9898ED1C19555800CED7D8 /* qrcode_scan_btn_photo_nor@2x.png in Resources */,
@@ -1867,8 +1898,10 @@
 				DDA0769A1C28E4D900E3E856 /* shili0.png in Resources */,
 				DDBC6CC11C2827770077EC6B /* iconfont-yule-2.png in Resources */,
 				DDCB97831C27C7D100A5DAD8 /* iconfont-bofang.png in Resources */,
+				DD89B7861C3033DB0092FE15 /* qq.png in Resources */,
 				DDEAD8DD1C219B2700349FDC /* iconfont-guanyu.png in Resources */,
 				DD7A100C1C19CFF2004D67DE /* suite5_heartbeat_background@3x.png in Resources */,
+				DD89B7881C3033DB0092FE15 /* weixin.jpg in Resources */,
 				DDBC6CBB1C2803950077EC6B /* iconfont-fanhui.png in Resources */,
 				DD10489A1C1AAB8300189672 /* LikeBtn1.png in Resources */,
 				DDB91DD31C21617B0009FA10 /* iconfont-fenxiang.png in Resources */,
@@ -1946,6 +1979,7 @@
 				DDCB97801C27C75C00A5DAD8 /* AppDelegate.m in Sources */,
 				DDA076AA1C292FFA00E3E856 /* MusicCell.m in Sources */,
 				DD753E7F1C204234000B4BAE /* MJRefreshBackNormalFooter.m in Sources */,
+				DD89B7811C3031F30092FE15 /* LoginViewController.m in Sources */,
 				DD4040521C186723007EA804 /* SDWebImageDownloaderOperation.m in Sources */,
 				DD6B83051C301ADC00C7BDFE /* WeatherViewController.m in Sources */,
 				DD753E801C204234000B4BAE /* MJRefreshBackStateFooter.m in Sources */,

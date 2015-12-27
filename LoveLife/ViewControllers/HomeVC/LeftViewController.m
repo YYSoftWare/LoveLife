@@ -12,16 +12,47 @@
 @interface LeftViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
+    
+    //用户头像
+    UIImageView * _iconImageView;
+    //昵称
+    UILabel * _nameLabel;
 }
 
 @end
 
 @implementation LeftViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSUserDefaults * user = [NSUserDefaults standardUserDefaults];
+    NSString * userName = [user objectForKey:@"userName"];
+    NSString * iconURL = [user objectForKey:@"iconURL"];
+    _nameLabel.text = userName;
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:iconURL] placeholderImage:[UIImage imageNamed:@"5.jpg"]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = RGB(255,156,187,1);
+    [self createUI];
     [self createTableView];
+}
+
+#pragma mark - 创建UI
+-(void)createUI
+{
+    //头像
+    _iconImageView = [FactoryUI createImageViewWithFrame:CGRectMake(((SCREEN_W - 100) - 70) / 2 ,50, 70, 70) imageName:@"5.jpg"];
+    _iconImageView.layer.cornerRadius = _iconImageView.frame.size.width / 2;
+    _iconImageView.layer.masksToBounds = YES;
+    _iconImageView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_iconImageView];
+
+    //昵称
+    _nameLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, _iconImageView.center.y + _iconImageView.frame.size.height / 2 + 10, SCREEN_W - 100, 20) text:@"yangyangyang" textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:18]];
+    _nameLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_nameLabel];
 }
 
 #pragma mark - 创建tableView
@@ -79,8 +110,8 @@
     if (indexPath.row == 0)
     {
         //天气查询
-        WeatherViewController * weatherVC = [[WeatherViewController alloc]init];
-        [self presentViewController:weatherVC animated:YES completion:nil];
+//        WeatherViewController * weatherVC = [[WeatherViewController alloc]init];
+//        [self presentViewController:weatherVC animated:YES completion:nil];
     }
     else
     {

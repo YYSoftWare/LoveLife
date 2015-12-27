@@ -10,16 +10,13 @@
 #import "MyCollectionViewController.h"
 #import "AppDelegate.h"
 #import "AboutViewController.h"
+#import "LoginViewController.h"
 
 @interface MyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView * _tableView;
     //头部图片
     UIImageView * _headImageView;
-    //用户头像
-    UIImageView * _iconImageView;
-    //昵称
-    UILabel * _nameLabel;
     
     //夜间模式
     UIView * _darkView;
@@ -43,6 +40,8 @@ static CGFloat kImageOriginHeight = 200;
 {
     self.titleLabel.text = @"我的";
     self.leftButton.hidden = YES;
+    [self.rightButton setTitle:@"登录" forState:UIControlStateNormal];
+    [self setRightButtonSelector:@selector(rightButtonClick)];
 }
 
 #pragma mark - 创建tableView的头部视图
@@ -52,19 +51,6 @@ static CGFloat kImageOriginHeight = 200;
     _headImageView= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"welcome1"]];
     _headImageView.frame=CGRectMake(0, -kImageOriginHeight,SCREEN_W,kImageOriginHeight);
     [_tableView addSubview:_headImageView];
-    
-    
-    //头像
-    _iconImageView = [FactoryUI createImageViewWithFrame:CGRectMake(0, 0, 70, 70) imageName:@"5.jpg"];
-    _iconImageView.center = _headImageView.center;
-    _iconImageView.layer.cornerRadius = _iconImageView.frame.size.width / 2;
-    _iconImageView.layer.masksToBounds = YES;
-    _iconImageView.backgroundColor = [UIColor redColor];
-    [_tableView addSubview:_iconImageView];
-    //昵称
-    _nameLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, _iconImageView.center.y + _iconImageView.frame.size.height / 2 + 10, SCREEN_W, 20) text:@"yangyangyang" textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:18]];
-    _nameLabel.textAlignment = NSTextAlignmentCenter;
-    [_tableView addSubview:_nameLabel];
     
     //夜间模式遮罩view
     _darkView = [FactoryUI createViewWithFrame:[UIScreen mainScreen].bounds];
@@ -318,7 +304,13 @@ static CGFloat kImageOriginHeight = 200;
     }
 }
 
-
+#pragma mark - 按钮响应函数
+-(void)rightButtonClick
+{
+    LoginViewController * vc = [[LoginViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {

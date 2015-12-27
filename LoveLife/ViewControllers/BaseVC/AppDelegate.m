@@ -55,11 +55,87 @@
     //[self checkNetWorkState];
     //注册友盟
     [self addUMShare];
+    //本地推送
+    [self createLocalPushNotification];
     
     //设置状态栏的颜色为白色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     return YES;
+}
+
+#pragma mark - 创建本地推送
+-(void)createLocalPushNotification
+{
+    //解决iOS8.0以后本地推送接收不到消息的问题
+    float systemVersion = [[UIDevice currentDevice] systemVersion].floatValue;
+    if (systemVersion >= 8.0)
+    {
+        //设置类型
+        UIUserNotificationType type = UIUserNotificationTypeSound | UIUserNotificationTypeBadge | UIUserNotificationTypeAlert;
+        //初始化一个设置
+        UIUserNotificationSettings * settings = [UIUserNotificationSettings settingsForTypes:type categories:nil];
+        //将这个设置注册到我们的系统管理里面
+        [[UIApplication sharedApplication]registerUserNotificationSettings:settings];
+    }
+    
+    
+    //创建一个本地推送任务
+    [self createLocalNotification];
+    //取消推送任务
+    [self cancelLocalNotification];
+}
+
+-(void)createLocalNotification
+{
+    //初始化本地推送
+    UILocalNotification * notification = [[UILocalNotification alloc]init];
+    //设置推送的时间
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+    //设置推送时区
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    //设置重复的时间间隔,以天为单位
+    notification.repeatInterval = kCFCalendarUnitDay;
+    //设置推送的内容
+    notification.alertBody = @"亲,爱生活有新宝贝更新了，快来看看吧！";
+    //设置推送的提示声音
+    notification.soundName = @"音效.caf";
+    //提示推送的消息小圆圈
+    notification.applicationIconBadgeNumber = 1;
+    //    int num = (int)notification.applicationIconBadgeNumber;
+    //    if (num > 1)
+    //    {
+    //        num = 0;
+    //    }
+    
+    
+    //将我们的推送任务添加到系统管理里面
+    [[UIApplication sharedApplication]scheduleLocalNotification:notification];
+}
+
+//实现推送必须要实现的一个方法
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    //设置一个提示框
+    UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:notification.alertBody delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [alertView show];
+    //重置一下小圆圈的显示个数
+    notification.applicationIconBadgeNumber = 0;
+}
+
+-(void)cancelLocalNotification
+{
+    //取消全部的推送任务
+    //[[UIApplication sharedApplication]cancelAllLocalNotifications];
+    
+    //取消指定条件下的推送任务
+    //首先取出全部的推送任务
+    NSArray * localNotificationArray = [[UIApplication sharedApplication]scheduledLocalNotifications];
+    for (UILocalNotification * noti in localNotificationArray)
+    {
+        //设置指定的条件
+        
+    }
 }
 
 #pragma mark - 创建引导页

@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoveLife/ViewControllers/BaseVC/AppDelegate.m"
-            timestampString = "472909703.277545"
+            timestampString = "472919588.6161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-beginExperience:"
             landmarkType = "5">
          </BreakpointContent>
