@@ -11,6 +11,7 @@
 #import "ZCZBarViewController.h"
 #import "ZLSwipeableView.h"
 #import "HomeDetaiViewController.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface HomeViewController ()<ZLSwipeableViewDataSource,ZLSwipeableViewDelegate>
 {
@@ -35,8 +36,44 @@
     [super viewDidLoad];
     [self settingNav];
     [self createBgImageView];
+    [self checkNetWorkState];
     [self loadData];
 }
+#pragma mark - 检测网络状态
+-(void)checkNetWorkState
+{
+    //创建一个用于测试的url
+    AFHTTPRequestOperationManager * manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"http://www.apple.com"]];
+    //判断不同的网络状态
+    [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                [self createAlertView:@"您当前使用的是数据流量"];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                [self createAlertView:@"您当前使用的是Wifi"];
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                [self createAlertView:@"世界上最遥远的距离就是没网"];
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                [self createAlertView:@"网络状况不明确"];
+                break;
+                
+            default:
+                break;
+        }
+    }];
+    
+}
+
+//网络提示
+-(void)createAlertView:(NSString *)message
+{
+    UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [alertView show];
+}
+
 
 #pragma mark -  请求数据
 -(void)loadData
@@ -196,7 +233,10 @@
 #pragma mark - 按钮响应方法
 -(void)leftButtonClick
 {
-    
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:NO completion:^(BOOL finished) {
+        
+    }];
+
 }
 
 -(void)rightButtonClick

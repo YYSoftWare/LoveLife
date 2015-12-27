@@ -153,6 +153,18 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //设置cell的显示动画为3D缩放
+    //xy方向缩放的初始值为0.1
+    cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1);
+    //设置动画时间为0.25秒,xy方向缩放的最终值为1
+    [UIView animateWithDuration:1.0f animations:^{
+        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
+        
+    }];
+}
+
 #pragma mark - 按钮响应方法
 -(void)leftButtonClick
 {

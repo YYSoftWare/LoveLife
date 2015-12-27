@@ -213,22 +213,19 @@
 //解析歌词
 - (void)anlisisLrc:(NSString *)urlStr
 {
-    NSLog(@"开始解析歌词");
     [LZZLrcAnlisis anlisisLrc:[NSURL URLWithString:urlStr] withCompleteBlock:^(NSArray * lrc) {
         
         if (lrc.count<=1) {
             
             self.noLrcLabel.hidden = NO;
             self.lrcArray = nil;
-            [_tableView reloadData];
-            NSLog(@"歌词解析失败  －－－－");
+            //[_tableView reloadData];
             
         }else
         {
             self.noLrcLabel.hidden = YES;
             self.lrcArray = lrc;
-            [_tableView reloadData];
-            NSLog(@"解析歌词成功－－－－%@",lrc[1]);
+            //[_tableView reloadData];
         }
     }];
 }

@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "MyTabBarViewController.h"
 #import "GuidePageView.h"
+//抽屉
 #import "FLSideSlipViewController.h"
+#import "MMDrawerController.h"
 #import "LeftViewController.h"
 
 #import "UMSocial.h"
@@ -35,19 +37,22 @@
     //初始化页面
     //主页面
     self.myTabBar = [[MyTabBarViewController alloc]init];
-    FLSideSlipViewController * sliderVC = [[FLSideSlipViewController alloc]initWithRootViewController:self.myTabBar];
-    //设置
-    sliderVC.canSlideInPush = YES;
     //左页面
-//    LeftViewController * leftVC = [[LeftViewController alloc]init];
-//    sliderVC.leftViewController = leftVC;
+    LeftViewController * leftVC = [[LeftViewController alloc]init];
+
+    MMDrawerController * drawerVC = [[MMDrawerController alloc]initWithCenterViewController:self.myTabBar leftDrawerViewController:leftVC];
+    //设置打开和关闭的手势
+    drawerVC.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    drawerVC.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    //设置左控制器显示的宽度
+    drawerVC.maximumLeftDrawerWidth = SCREEN_W - 100;
     
-    self.window.rootViewController = sliderVC;
+    self.window.rootViewController = drawerVC;
     
     //引导页
     [self createGuidePage];
     //测试网络状态
-    [self checkNetWorkState];
+    //[self checkNetWorkState];
     //注册友盟
     [self addUMShare];
     

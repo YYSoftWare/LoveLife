@@ -63,6 +63,17 @@
 		DD664E041C2CDBEA001FDEE1 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DD664DFF1C2CDBEA001FDEE1 /* FMResultSet.m */; };
 		DD664E081C2CDC17001FDEE1 /* GDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD664E071C2CDC17001FDEE1 /* GDDataManager.m */; };
 		DD6A477D1C1D262C0025AC9F /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6A477C1C1D262C0025AC9F /* LaunchImage.png */; };
+		DD6B82F61C30077600C7BDFE /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B82EE1C30077600C7BDFE /* MMDrawerBarButtonItem.m */; };
+		DD6B82F71C30077600C7BDFE /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B82F11C30077600C7BDFE /* MMDrawerController.m */; };
+		DD6B82F81C30077600C7BDFE /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B82F31C30077600C7BDFE /* MMDrawerVisualState.m */; };
+		DD6B82F91C30077600C7BDFE /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B82F51C30077600C7BDFE /* UIViewController+MMDrawerController.m */; };
+		DD6B82FD1C30129100C7BDFE /* iconfont-chatianqi.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B82FB1C30129100C7BDFE /* iconfont-chatianqi.png */; };
+		DD6B82FE1C30129100C7BDFE /* iconfont-ditu.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B82FC1C30129100C7BDFE /* iconfont-ditu.png */; };
+		DD6B83041C301ADC00C7BDFE /* ChooseProvinceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B83011C301ADC00C7BDFE /* ChooseProvinceViewController.m */; };
+		DD6B83051C301ADC00C7BDFE /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B83031C301ADC00C7BDFE /* WeatherViewController.m */; };
+		DD6B83091C301DE200C7BDFE /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B83081C301DE200C7BDFE /* WeatherModel.m */; };
+		DD6B830D1C301EBC00C7BDFE /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B830C1C301EBC00C7BDFE /* WeatherViewCell.m */; };
+		DD6B83101C30217800C7BDFE /* NewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B830F1C30217800C7BDFE /* NewFrame.m */; };
 		DD6B90D11C2D33C6009C784E /* 矢量智能对象口味@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B90CB1C2D33C6009C784E /* 矢量智能对象口味@2x.png */; };
 		DD6B90D21C2D33C6009C784E /* 矢量智能对象口味@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B90CC1C2D33C6009C784E /* 矢量智能对象口味@3x.png */; };
 		DD6B90D31C2D33C6009C784E /* 矢量智能对象难易度@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B90CD1C2D33C6009C784E /* 矢量智能对象难易度@2x.png */; };
@@ -339,6 +350,27 @@
 		DD664E061C2CDC17001FDEE1 /* GDDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDDataManager.h; sourceTree = "<group>"; };
 		DD664E071C2CDC17001FDEE1 /* GDDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDDataManager.m; sourceTree = "<group>"; };
 		DD6A477C1C1D262C0025AC9F /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		DD6B82ED1C30077600C7BDFE /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		DD6B82EE1C30077600C7BDFE /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		DD6B82EF1C30077600C7BDFE /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		DD6B82F01C30077600C7BDFE /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		DD6B82F11C30077600C7BDFE /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		DD6B82F21C30077600C7BDFE /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		DD6B82F31C30077600C7BDFE /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		DD6B82F41C30077600C7BDFE /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		DD6B82F51C30077600C7BDFE /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		DD6B82FB1C30129100C7BDFE /* iconfont-chatianqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-chatianqi.png"; sourceTree = "<group>"; };
+		DD6B82FC1C30129100C7BDFE /* iconfont-ditu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-ditu.png"; sourceTree = "<group>"; };
+		DD6B83001C301ADC00C7BDFE /* ChooseProvinceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseProvinceViewController.h; sourceTree = "<group>"; };
+		DD6B83011C301ADC00C7BDFE /* ChooseProvinceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseProvinceViewController.m; sourceTree = "<group>"; };
+		DD6B83021C301ADC00C7BDFE /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		DD6B83031C301ADC00C7BDFE /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		DD6B83071C301DE200C7BDFE /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
+		DD6B83081C301DE200C7BDFE /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
+		DD6B830B1C301EBC00C7BDFE /* WeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewCell.h; sourceTree = "<group>"; };
+		DD6B830C1C301EBC00C7BDFE /* WeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewCell.m; sourceTree = "<group>"; };
+		DD6B830E1C30217800C7BDFE /* NewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFrame.h; sourceTree = "<group>"; };
+		DD6B830F1C30217800C7BDFE /* NewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFrame.m; sourceTree = "<group>"; };
 		DD6B90CB1C2D33C6009C784E /* 矢量智能对象口味@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢量智能对象口味@2x.png"; sourceTree = "<group>"; };
 		DD6B90CC1C2D33C6009C784E /* 矢量智能对象口味@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢量智能对象口味@3x.png"; sourceTree = "<group>"; };
 		DD6B90CD1C2D33C6009C784E /* 矢量智能对象难易度@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢量智能对象难易度@2x.png"; sourceTree = "<group>"; };
@@ -897,11 +929,66 @@
 			path = FMDBManager;
 			sourceTree = "<group>";
 		};
+		DD6B82EC1C30077600C7BDFE /* MMDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				DD6B82ED1C30077600C7BDFE /* MMDrawerBarButtonItem.h */,
+				DD6B82EE1C30077600C7BDFE /* MMDrawerBarButtonItem.m */,
+				DD6B82EF1C30077600C7BDFE /* MMDrawerController+Subclass.h */,
+				DD6B82F01C30077600C7BDFE /* MMDrawerController.h */,
+				DD6B82F11C30077600C7BDFE /* MMDrawerController.m */,
+				DD6B82F21C30077600C7BDFE /* MMDrawerVisualState.h */,
+				DD6B82F31C30077600C7BDFE /* MMDrawerVisualState.m */,
+				DD6B82F41C30077600C7BDFE /* UIViewController+MMDrawerController.h */,
+				DD6B82F51C30077600C7BDFE /* UIViewController+MMDrawerController.m */,
+			);
+			path = MMDrawerController;
+			sourceTree = "<group>";
+		};
+		DD6B82FA1C30128100C7BDFE /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				DD6B82FB1C30129100C7BDFE /* iconfont-chatianqi.png */,
+				DD6B82FC1C30129100C7BDFE /* iconfont-ditu.png */,
+			);
+			path = Drawer;
+			sourceTree = "<group>";
+		};
+		DD6B82FF1C301ADC00C7BDFE /* WeatherVC */ = {
+			isa = PBXGroup;
+			children = (
+				DD6B83001C301ADC00C7BDFE /* ChooseProvinceViewController.h */,
+				DD6B83011C301ADC00C7BDFE /* ChooseProvinceViewController.m */,
+				DD6B83021C301ADC00C7BDFE /* WeatherViewController.h */,
+				DD6B83031C301ADC00C7BDFE /* WeatherViewController.m */,
+			);
+			path = WeatherVC;
+			sourceTree = "<group>";
+		};
+		DD6B83061C301DE200C7BDFE /* WeatherModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD6B83071C301DE200C7BDFE /* WeatherModel.h */,
+				DD6B83081C301DE200C7BDFE /* WeatherModel.m */,
+			);
+			path = WeatherModel;
+			sourceTree = "<group>";
+		};
+		DD6B830A1C301EBC00C7BDFE /* WeatherCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD6B830B1C301EBC00C7BDFE /* WeatherViewCell.h */,
+				DD6B830C1C301EBC00C7BDFE /* WeatherViewCell.m */,
+			);
+			path = WeatherCell;
+			sourceTree = "<group>";
+		};
 		DD6B90D91C2DA683009C784E /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
 				DD6B90DA1C2DA683009C784E /* FLSideSlipViewController.h */,
 				DD6B90DB1C2DA683009C784E /* FLSideSlipViewController.m */,
+				DD6B82EC1C30077600C7BDFE /* MMDrawerController */,
 			);
 			path = Drawer;
 			sourceTree = "<group>";
@@ -918,6 +1005,8 @@
 		DD73E32A1C2BD0F400752021 /* FactoryUI */ = {
 			isa = PBXGroup;
 			children = (
+				DD6B830E1C30217800C7BDFE /* NewFrame.h */,
+				DD6B830F1C30217800C7BDFE /* NewFrame.m */,
 				DD73E32B1C2BD0F400752021 /* FactoryUI.h */,
 				DD73E32C1C2BD0F400752021 /* FactoryUI.m */,
 			);
@@ -1249,6 +1338,7 @@
 		DD9898B71C191B3C00CED7D8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DD6B82FA1C30128100C7BDFE /* Drawer */,
 				DD8B9F9C1C2396B4002BF65C /* special_palcehold.png */,
 				DD9898B81C191B3C00CED7D8 /* icon_function.png */,
 				DD7A0FF91C19BFC3004D67DE /* 2vm.png */,
@@ -1345,6 +1435,7 @@
 		DD9E42891C1E9E870042DB6E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD6B83061C301DE200C7BDFE /* WeatherModel */,
 				DDA076AB1C2930C200E3E856 /* ReadModel */,
 				DD804DFE1C26EEB100FDB63A /* FoodModel */,
 				DDA076B21C29316200E3E856 /* FunModel */,
@@ -1364,6 +1455,7 @@
 		DD9E42951C1EA3840042DB6E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD6B830A1C301EBC00C7BDFE /* WeatherCell */,
 				DDBC6CC61C283F0D0077EC6B /* FunCell */,
 				DD9E42961C1EA3970042DB6E /* ReadCell */,
 				DD804DF71C2697BE00FDB63A /* FoodCell */,
@@ -1457,6 +1549,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCB974E1C27C64100A5DAD8 /* BaseVC */,
+				DD6B82FF1C301ADC00C7BDFE /* WeatherVC */,
 				DDCB97551C27C64100A5DAD8 /* FoodVC */,
 				DDCB97581C27C64100A5DAD8 /* HealthyVC */,
 				DDCB975B1C27C64100A5DAD8 /* HomeVC */,
@@ -1729,6 +1822,7 @@
 				DD4040CA1C1881A0007EA804 /* ic_tab_category_selected@2x.png in Resources */,
 				DD4040D51C1881A0007EA804 /* welcome5.png in Resources */,
 				DD9898B91C191B3C00CED7D8 /* icon_function.png in Resources */,
+				DD6B82FD1C30129100C7BDFE /* iconfont-chatianqi.png in Resources */,
 				DDBC6CC41C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png in Resources */,
 				DD4040CC1C1881A0007EA804 /* ic_tab_home_selected@2x.png in Resources */,
 				DD6B90D41C2D33C6009C784E /* 矢量智能对象难易度@3x.png in Resources */,
@@ -1790,6 +1884,7 @@
 				DD73E3231C2B976D00752021 /* iconfont-zanting.png in Resources */,
 				DD8557971C2A30560094DD6B /* UMShareEditViewControlleriPad.xib in Resources */,
 				DD9898EE1C19555800CED7D8 /* qrcode_scan_btn_scan_off@2x.png in Resources */,
+				DD6B82FE1C30129100C7BDFE /* iconfont-ditu.png in Resources */,
 				DDCB97A01C27FD7A00A5DAD8 /* iconfont-bofang-3.png in Resources */,
 				DD7A100A1C19CFF2004D67DE /* suite5_heartbeat_background.png in Resources */,
 			);
@@ -1819,6 +1914,7 @@
 				DD753E7B1C204234000B4BAE /* MJRefreshAutoGifFooter.m in Sources */,
 				DDCB97761C27C64100A5DAD8 /* HomeDetaiViewController.m in Sources */,
 				DDCB977B1C27C64100A5DAD8 /* ArticalViewController.m in Sources */,
+				DD6B83101C30217800C7BDFE /* NewFrame.m in Sources */,
 				DDA7B89F1C2FC7B500DF4F0A /* AboutViewController.m in Sources */,
 				DD4040271C18671D007EA804 /* AFURLRequestSerialization.m in Sources */,
 				DD9898F21C19555800CED7D8 /* ZCZBarViewController.mm in Sources */,
@@ -1829,11 +1925,14 @@
 				DD9E42941C1EA0EE0042DB6E /* MBProgressHUD.m in Sources */,
 				DD753E821C204234000B4BAE /* MJRefreshNormalHeader.m in Sources */,
 				DDA076B11C2930C200E3E856 /* UtteranceModel.m in Sources */,
+				DD6B82F81C30077600C7BDFE /* MMDrawerVisualState.m in Sources */,
 				DD4040261C18671D007EA804 /* AFURLConnectionOperation.m in Sources */,
 				DD753E871C204234000B4BAE /* UIScrollView+MJRefresh.m in Sources */,
 				DD804E011C26EEC600FDB63A /* FoodModel.m in Sources */,
+				DD6B82F91C30077600C7BDFE /* UIViewController+MMDrawerController.m in Sources */,
 				DDCB977D1C27C64100A5DAD8 /* UtteranceViewController.m in Sources */,
 				DD4040251C18671D007EA804 /* AFSecurityPolicy.m in Sources */,
+				DD6B82F71C30077600C7BDFE /* MMDrawerController.m in Sources */,
 				DD73E32D1C2BD0F400752021 /* FactoryUI.m in Sources */,
 				DD40404D1C186723007EA804 /* NSData+ImageContentType.m in Sources */,
 				DD753E7A1C204234000B4BAE /* MJRefreshHeader.m in Sources */,
@@ -1848,6 +1947,7 @@
 				DDA076AA1C292FFA00E3E856 /* MusicCell.m in Sources */,
 				DD753E7F1C204234000B4BAE /* MJRefreshBackNormalFooter.m in Sources */,
 				DD4040521C186723007EA804 /* SDWebImageDownloaderOperation.m in Sources */,
+				DD6B83051C301ADC00C7BDFE /* WeatherViewController.m in Sources */,
 				DD753E801C204234000B4BAE /* MJRefreshBackStateFooter.m in Sources */,
 				DD7A10051C19C8BC004D67DE /* ZLPanGestureRecognizer.m in Sources */,
 				DD73E33C1C2BD0FC00752021 /* AFSoundQueue.m in Sources */,
@@ -1855,6 +1955,8 @@
 				DD40404C1C186723007EA804 /* MKAnnotationView+WebCache.m in Sources */,
 				DD664E041C2CDBEA001FDEE1 /* FMResultSet.m in Sources */,
 				DD753E771C204234000B4BAE /* MJRefreshBackFooter.m in Sources */,
+				DD6B83091C301DE200C7BDFE /* WeatherModel.m in Sources */,
+				DD6B83041C301ADC00C7BDFE /* ChooseProvinceViewController.m in Sources */,
 				DD40404F1C186723007EA804 /* SDWebImageCompat.m in Sources */,
 				DD753E791C204234000B4BAE /* MJRefreshFooter.m in Sources */,
 				DD753E861C204234000B4BAE /* UIScrollView+MJExtension.m in Sources */,
@@ -1881,6 +1983,7 @@
 				DD7A10061C19C8BC004D67DE /* ZLSwipeableView.m in Sources */,
 				DDA076B51C29317A00E3E856 /* MusicModel.m in Sources */,
 				DD664E021C2CDBEA001FDEE1 /* FMDatabasePool.m in Sources */,
+				DD6B830D1C301EBC00C7BDFE /* WeatherViewCell.m in Sources */,
 				DD753E811C204234000B4BAE /* MJRefreshGifHeader.m in Sources */,
 				DD4040581C186723007EA804 /* UIImage+WebP.m in Sources */,
 				DD753E7E1C204234000B4BAE /* MJRefreshBackGifFooter.m in Sources */,
@@ -1892,6 +1995,7 @@
 				DD804DFA1C2697E100FDB63A /* FoodTitleCollectionViewCell.m in Sources */,
 				DDCB97771C27C64100A5DAD8 /* HomeViewController.m in Sources */,
 				DD73E33A1C2BD0FC00752021 /* AFSoundItem.m in Sources */,
+				DD6B82F61C30077600C7BDFE /* MMDrawerBarButtonItem.m in Sources */,
 				DDCB978B1C27D1FB00A5DAD8 /* FoodDetailViewController.m in Sources */,
 				DDCB97781C27C64100A5DAD8 /* MyCollectionViewController.m in Sources */,
 				DD403FE91C181B78007EA804 /* main.m in Sources */,
