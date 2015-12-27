@@ -40,11 +40,11 @@
 -(void)settingNav
 {
     self.titleLabel.text = @"详情";
-    [self.rightButton setImage:[UIImage imageNamed:@"iconfont-shoucangweishoucang-2"] forState:UIControlStateNormal];
-    [self.rightButton setImage:[UIImage imageNamed:@"iconfont-shoucangyishoucang"] forState:UIControlStateSelected];
+//    [self.rightButton setImage:[UIImage imageNamed:@"iconfont-shoucangweishoucang-2"] forState:UIControlStateNormal];
+//    [self.rightButton setImage:[UIImage imageNamed:@"iconfont-shoucangyishoucang"] forState:UIControlStateSelected];
     
     [self setLeftButtonSelector:@selector(leftButtonClick)];
-    [self setRightButtonSelector:@selector(rightButtonClick:)];
+    //[self setRightButtonSelector:@selector(rightButtonClick:)];
 }
 
 #pragma mark - 数据请求

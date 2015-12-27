@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MyTabBarViewController.h"
 #import "GuidePageView.h"
+#import "FLSideSlipViewController.h"
+#import "LeftViewController.h"
 
 #import "UMSocial.h"
 //支持qq
@@ -30,8 +32,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //初始化页面
+    //主页面
     self.myTabBar = [[MyTabBarViewController alloc]init];
-    self.window.rootViewController = self.myTabBar;
+    FLSideSlipViewController * sliderVC = [[FLSideSlipViewController alloc]initWithRootViewController:self.myTabBar];
+    //左页面
+    LeftViewController * leftVC = [[LeftViewController alloc]init];
+    sliderVC.leftViewController = leftVC;
+    
+    self.window.rootViewController = sliderVC;
     
     //引导页
     [self createGuidePage];

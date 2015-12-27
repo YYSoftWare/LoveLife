@@ -70,6 +70,8 @@
 		DD6B90D51C2D33C6009C784E /* 矢量智能对象时长@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B90CF1C2D33C6009C784E /* 矢量智能对象时长@2x.png */; };
 		DD6B90D61C2D33C6009C784E /* 矢量智能对象时长@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B90D01C2D33C6009C784E /* 矢量智能对象时长@3x.png */; };
 		DD6B90D81C2D4076009C784E /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD6B90D71C2D4076009C784E /* 5.jpg */; };
+		DD6B90DC1C2DA684009C784E /* FLSideSlipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B90DB1C2DA683009C784E /* FLSideSlipViewController.m */; };
+		DD6B90DF1C2DA6E2009C784E /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B90DE1C2DA6E2009C784E /* LeftViewController.m */; };
 		DD73E31D1C2B928100752021 /* iconfont-music-fanhui.png in Resources */ = {isa = PBXBuildFile; fileRef = DD73E31C1C2B928100752021 /* iconfont-music-fanhui.png */; };
 		DD73E3211C2B976D00752021 /* iconfont-shangyishou.png in Resources */ = {isa = PBXBuildFile; fileRef = DD73E31E1C2B976D00752021 /* iconfont-shangyishou.png */; };
 		DD73E3221C2B976D00752021 /* iconfont-xiayishou.png in Resources */ = {isa = PBXBuildFile; fileRef = DD73E31F1C2B976D00752021 /* iconfont-xiayishou.png */; };
@@ -335,6 +337,10 @@
 		DD6B90CF1C2D33C6009C784E /* 矢量智能对象时长@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢量智能对象时长@2x.png"; sourceTree = "<group>"; };
 		DD6B90D01C2D33C6009C784E /* 矢量智能对象时长@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "矢量智能对象时长@3x.png"; sourceTree = "<group>"; };
 		DD6B90D71C2D4076009C784E /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		DD6B90DA1C2DA683009C784E /* FLSideSlipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSideSlipViewController.h; sourceTree = "<group>"; };
+		DD6B90DB1C2DA683009C784E /* FLSideSlipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSideSlipViewController.m; sourceTree = "<group>"; };
+		DD6B90DD1C2DA6E2009C784E /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		DD6B90DE1C2DA6E2009C784E /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		DD73E31C1C2B928100752021 /* iconfont-music-fanhui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-music-fanhui.png"; sourceTree = "<group>"; };
 		DD73E31E1C2B976D00752021 /* iconfont-shangyishou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-shangyishou.png"; sourceTree = "<group>"; };
 		DD73E31F1C2B976D00752021 /* iconfont-xiayishou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-xiayishou.png"; sourceTree = "<group>"; };
@@ -868,6 +874,15 @@
 			path = FMDBManager;
 			sourceTree = "<group>";
 		};
+		DD6B90D91C2DA683009C784E /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				DD6B90DA1C2DA683009C784E /* FLSideSlipViewController.h */,
+				DD6B90DB1C2DA683009C784E /* FLSideSlipViewController.m */,
+			);
+			path = Drawer;
+			sourceTree = "<group>";
+		};
 		DD73E3241C2BA3EF00752021 /* PlayModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,6 +1017,7 @@
 			children = (
 				DD73E33F1C2BD4C500752021 /* LZZLrcAnlisis.h */,
 				DD73E3401C2BD4C500752021 /* LZZLrcAnlisis.m */,
+				DD6B90D91C2DA683009C784E /* Drawer */,
 				DD664E051C2CDC17001FDEE1 /* FMDBManager */,
 				DD73E32E1C2BD0FC00752021 /* AFsoundManager */,
 				DD73E32A1C2BD0F400752021 /* FactoryUI */,
@@ -1462,6 +1478,8 @@
 				DDCB975D1C27C64100A5DAD8 /* HomeDetaiViewController.m */,
 				DDCB975E1C27C64100A5DAD8 /* HomeViewController.h */,
 				DDCB975F1C27C64100A5DAD8 /* HomeViewController.m */,
+				DD6B90DD1C2DA6E2009C784E /* LeftViewController.h */,
+				DD6B90DE1C2DA6E2009C784E /* LeftViewController.m */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -1778,6 +1796,7 @@
 				DD4040211C18671D007EA804 /* AFHTTPRequestOperation.m in Sources */,
 				DD753E7C1C204234000B4BAE /* MJRefreshAutoNormalFooter.m in Sources */,
 				DD4040291C18671D007EA804 /* AFURLSessionManager.m in Sources */,
+				DD6B90DC1C2DA684009C784E /* FLSideSlipViewController.m in Sources */,
 				DD4040551C186723007EA804 /* UIButton+WebCache.m in Sources */,
 				DDCB97801C27C75C00A5DAD8 /* AppDelegate.m in Sources */,
 				DDA076AA1C292FFA00E3E856 /* MusicCell.m in Sources */,
@@ -1802,6 +1821,7 @@
 				DD40405A1C186723007EA804 /* UIImageView+WebCache.m in Sources */,
 				DD73E33E1C2BD0FC00752021 /* NSTimer+AFSoundManager.m in Sources */,
 				DD73E33B1C2BD0FC00752021 /* AFSoundPlayback.m in Sources */,
+				DD6B90DF1C2DA6E2009C784E /* LeftViewController.m in Sources */,
 				DD40405B1C186723007EA804 /* UIView+WebCacheOperation.m in Sources */,
 				DD4040231C18671D007EA804 /* AFHTTPSessionManager.m in Sources */,
 				DD4040221C18671D007EA804 /* AFHTTPRequestOperationManager.m in Sources */,
