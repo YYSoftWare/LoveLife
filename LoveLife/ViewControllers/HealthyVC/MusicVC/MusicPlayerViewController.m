@@ -68,8 +68,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentIndex = _indexPath.row;
     [self createUI];
-    [self refreshUI];
     [self createPlayQuene];
 }
 
@@ -88,36 +88,38 @@
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:titleLabel];
     
+    //演唱者
+    UILabel * artistLabel = [FactoryUI createLabelWithFrame:CGRectMake(SCREEN_W - 150, titleLabel.frame.size.height + titleLabel.frame.origin.y + 15, 140, 20) text:[NSString stringWithFormat:@"演唱者：%@",self.lrcInfo.artist] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:15]];
+    artistLabel.textAlignment = NSTextAlignmentRight;
+    [self.view addSubview:artistLabel];
+    
     //图片
-    UIImageView * imageView = [FactoryUI createImageViewWithFrame:CGRectMake((SCREEN_W - 70) / 2, titleLabel.frame.size.height + titleLabel.frame.origin.y + 10, 70, 70) imageName:nil];
+    UIImageView * imageView = [FactoryUI createImageViewWithFrame:CGRectMake(20, titleLabel.frame.size.height + titleLabel.frame.origin.y + 70, SCREEN_W - 40, SCREEN_W - 40) imageName:nil];
     [self.view addSubview:imageView];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.imageUrl] placeholderImage:[UIImage imageNamed:@"special_palcehold"]];
     
     //歌词展示
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, titleLabel.frame.size.height + titleLabel.frame.origin.y + 140, SCREEN_W - 40, 300) style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    [self.view addSubview:_tableView];
-    _tableView.separatorColor = [UIColor clearColor];
+//    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, titleLabel.frame.size.height + titleLabel.frame.origin.y + 140, SCREEN_W - 40, 300) style:UITableViewStylePlain];
+//    _tableView.delegate = self;
+//    _tableView.dataSource = self;
+//    [self.view addSubview:_tableView];
+//    _tableView.separatorColor = [UIColor clearColor];
     
     //进度条
-    _songSlider = [[UISlider alloc]initWithFrame:CGRectMake(20, SCREEN_H - 50, SCREEN_W - 20, 10)];
+    _songSlider = [[UISlider alloc]initWithFrame:CGRectMake(20, SCREEN_H - 50, SCREEN_W - 40, 10)];
     _songSlider.continuous = NO;
+    //设置滑块最大长度.
+    _songSlider.maximumValue = _lrcInfo.length.floatValue;
     [_songSlider addTarget:self action:@selector(sliderChange:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_songSlider];
     
     //播放按钮
-    NSArray * playButtonArray = @[@"",@"",@""];
+    NSArray * playButtonArray = @[@"iconfont-bofangqishangyiqu",@"iconfont-musicbofang",@"iconfont-bofangqixiayiqu"];
     for (int i = 0; i < playButtonArray.count; i++) {
-        UIButton * playButton = [FactoryUI createButtonWithFrame:CGRectMake(70 + i * 70, SCREEN_H - 40, 30, 30) title:nil titleColor:nil imageName:playButtonArray[i] backgroundImageName:nil target:self selector:@selector(playButtonClick:)];
+        UIButton * playButton = [FactoryUI createButtonWithFrame:CGRectMake((SCREEN_W - 90) / 4 + i * ((SCREEN_W - 90) / 4 + 30), SCREEN_H - 10, 30, 30) title:nil titleColor:nil imageName:playButtonArray[i] backgroundImageName:nil target:self selector:@selector(playButtonClick:)];
         playButton.tag = 30 + i;
         [self.view addSubview:playButton];
     }
-}
-
-#pragma mark - 刷新UI
--(void)refreshUI
-{
-    
 }
 
 #pragma mark - 播放队列
@@ -138,17 +140,16 @@
         
         //展示歌词
         [weakSelf shoWlrc];
-        //[weakSelf.loadingView stopAnimating];
     });
 }
 
 -(void)settingPlayQueue
 {
-    NSLog(@"开始设置队列");
+   // NSLog(@"开始设置队列");
     AFSoundItem * currentItem = [[AFSoundItem alloc]initWithStreamingURL:[NSURL URLWithString:_lrcInfo.url]];
     _queue = [[AFSoundQueue alloc]initWithItems:@[currentItem]];
     [_queue playCurrentItem];
-    NSLog(@"队列设置完成");
+    //NSLog(@"队列设置完成");
 }
 
 //展示歌词
@@ -158,7 +159,7 @@
     NSInteger count = weakSelf.lrcArray.count;
     NSLog(@"展示歌词");
     [_queue listenFeedbackUpdatesWithBlock:^(AFSoundItem *item) {
-        NSLog(@"队列回调");
+        //NSLog(@"队列回调");
         weakSelf.songSlider.value = item.timePlayed;
         weakSelf.showTimeLabel.text = [NSString stringWithFormat:@"%zd/%zd",item.timePlayed,item.duration];
         
@@ -172,9 +173,9 @@
             
             if (lrcModel.timelength <= item.timePlayed*1.0 && nextLrcModel.timelength > item.timePlayed*1.0) {
                 
-                NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-                [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-                [weakSelf tableView:_tableView didSelectRowAtIndexPath:indexPath];
+//                NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//                [_tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+//                [weakSelf tableView:_tableView didSelectRowAtIndexPath:indexPath];
                 break;
             }
         }
@@ -202,12 +203,10 @@
 - (void)changInfo
 {
     self.lrcArray = nil;
-    [_tableView reloadData];
+    //[_tableView reloadData];
     _songSlider.value = 0;
     MusicModel * model = self.lrcInfos[_currentIndex] ;
     _songSlider.maximumValue = [[model length] floatValue];
-    
-    //self.backGroundImage.image = [UIImage imageWithData:[self.lrcInfos[_currentIndex] imageData]];
 }
 
 
@@ -236,32 +235,41 @@
 
 
 #pragma mark - tableView的代理方法
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.lrcArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"qqq"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"qqq"];
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.backgroundColor = [UIColor clearColor];
-        UIView * view = [[UIView alloc]initWithFrame:cell.bounds];
-        view.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
-        cell.selectedBackgroundView = view;
-    }
-    PlayModel * lrcModel = self.lrcArray[indexPath.row];
-    cell.textLabel.text = [lrcModel geci];
-    return cell;
-}
+//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return self.lrcArray.count;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"qqq"];
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"qqq"];
+//        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+//        cell.backgroundColor = [UIColor clearColor];
+//        UIView * view = [[UIView alloc]initWithFrame:cell.bounds];
+//        view.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
+//        cell.selectedBackgroundView = view;
+//    }
+//    PlayModel * lrcModel = self.lrcArray[indexPath.row];
+//    cell.textLabel.text = [lrcModel geci];
+//    return cell;
+//}
 
 
 #pragma mark - 按钮响应函数
 -(void)backButtonClick
 {
+    //返回的时候停止进程
+    [_queue clearQueue];
+     _queue = nil;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+//进度指示条
+-(void)sliderChange:(UISlider *)slider
+{
+    [_queue.getCurrentPlayBack playAtSecond:slider.value];
 }
 
 //上一曲，下一曲，播放
@@ -271,18 +279,66 @@
         case 0:
         {
             //上一曲
+            if (_currentIndex == 0) {
+                _currentIndex = self.lrcInfos.count;
+            }
+            
+            _currentIndex--;
+            [self changInfo];
+            dispatch_queue_t queues = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_group_t group = dispatch_group_create();
+            
+            dispatch_group_async(group, queues, ^{
+                [self anlisisLrc:(NSString *)[self.lrcInfos[_currentIndex] lyricURL]];
+            });
+            dispatch_group_async(group, queues, ^{
+                [self panDuan];
+            });
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                
+                [_queue playPreviousItem];
+                [self shoWlrc];
+            });
         }
             break;
         case 1:
         {
             //播放
+            button.selected = !button.isSelected;
             
+            if (button.isSelected) {
+                
+                [_queue playCurrentItem];
+                
+            }else{
+                [_queue pause];
+            }
         }
             break;
         case 2:
         {
             //下一曲
+            if (_currentIndex == self.lrcInfos.count-1) {
+                _currentIndex = 0;
+            }
             
+            _currentIndex ++;
+    
+            [self changInfo];
+            
+            dispatch_queue_t queues = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_group_t group = dispatch_group_create();
+            
+            dispatch_group_async(group, queues, ^{
+                [self anlisisLrc:(NSString *)[self.lrcInfos[_currentIndex] lyricURL]];
+            });
+            dispatch_group_async(group, queues, ^{
+                [self panDuan];
+            });
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                [_queue playNextItem];
+                [self shoWlrc];
+            });
         }
             break;
             

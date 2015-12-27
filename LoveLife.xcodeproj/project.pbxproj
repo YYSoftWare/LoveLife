@@ -189,6 +189,9 @@
 		DDA7B89A1C2FBFF700DF4F0A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA7B8991C2FBFF700DF4F0A /* libsqlite3.tbd */; };
 		DDA7B89C1C2FC00500DF4F0A /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA7B89B1C2FC00500DF4F0A /* libiconv.tbd */; };
 		DDA7B89F1C2FC7B500DF4F0A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B89E1C2FC7B500DF4F0A /* AboutViewController.m */; };
+		DDA7B8A31C2FEA9200DF4F0A /* iconfont-bofangqishangyiqu.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA7B8A01C2FEA9200DF4F0A /* iconfont-bofangqishangyiqu.png */; };
+		DDA7B8A41C2FEA9200DF4F0A /* iconfont-bofangqixiayiqu.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA7B8A11C2FEA9200DF4F0A /* iconfont-bofangqixiayiqu.png */; };
+		DDA7B8A51C2FEA9200DF4F0A /* iconfont-zanting.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA7B8A21C2FEA9200DF4F0A /* iconfont-zanting.png */; };
 		DDB91DD31C21617B0009FA10 /* iconfont-fenxiang.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB91DD21C21617B0009FA10 /* iconfont-fenxiang.png */; };
 		DDBC6CB71C2800620077EC6B /* iconfont-bofang-4.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CB61C2800620077EC6B /* iconfont-bofang-4.png */; };
 		DDBC6CB91C28011D0077EC6B /* iconfont-xiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CB81C28011D0077EC6B /* iconfont-xiazai.png */; };
@@ -199,6 +202,7 @@
 		DDBC6CC41C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CC21C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png */; };
 		DDBC6CC51C2827EE0077EC6B /* iconfont-iconfontmeishi.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CC31C2827EE0077EC6B /* iconfont-iconfontmeishi.png */; };
 		DDBC6CC91C283F540077EC6B /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBC6CC81C283F540077EC6B /* MyCollectionViewCell.m */; };
+		DDC71E4C1C2FF35F0009B50F /* iconfont-musicbofang.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC71E4B1C2FF35F0009B50F /* iconfont-musicbofang.png */; };
 		DDCB97711C27C64100A5DAD8 /* GuidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCB97501C27C64100A5DAD8 /* GuidePageView.m */; };
 		DDCB97721C27C64100A5DAD8 /* MyTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCB97521C27C64100A5DAD8 /* MyTabBarViewController.m */; };
 		DDCB97731C27C64100A5DAD8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCB97541C27C64100A5DAD8 /* RootViewController.m */; };
@@ -549,6 +553,9 @@
 		DDA7B89B1C2FC00500DF4F0A /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		DDA7B89D1C2FC7B500DF4F0A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		DDA7B89E1C2FC7B500DF4F0A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		DDA7B8A01C2FEA9200DF4F0A /* iconfont-bofangqishangyiqu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-bofangqishangyiqu.png"; sourceTree = "<group>"; };
+		DDA7B8A11C2FEA9200DF4F0A /* iconfont-bofangqixiayiqu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-bofangqixiayiqu.png"; sourceTree = "<group>"; };
+		DDA7B8A21C2FEA9200DF4F0A /* iconfont-zanting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-zanting.png"; sourceTree = "<group>"; };
 		DDB91DD21C21617B0009FA10 /* iconfont-fenxiang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-fenxiang.png"; sourceTree = "<group>"; };
 		DDBC6CB61C2800620077EC6B /* iconfont-bofang-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-bofang-4.png"; sourceTree = "<group>"; };
 		DDBC6CB81C28011D0077EC6B /* iconfont-xiazai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-xiazai.png"; sourceTree = "<group>"; };
@@ -560,6 +567,7 @@
 		DDBC6CC31C2827EE0077EC6B /* iconfont-iconfontmeishi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-iconfontmeishi.png"; sourceTree = "<group>"; };
 		DDBC6CC71C283F540077EC6B /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
 		DDBC6CC81C283F540077EC6B /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		DDC71E4B1C2FF35F0009B50F /* iconfont-musicbofang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-musicbofang.png"; sourceTree = "<group>"; };
 		DDCB974F1C27C64100A5DAD8 /* GuidePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidePageView.h; sourceTree = "<group>"; };
 		DDCB97501C27C64100A5DAD8 /* GuidePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidePageView.m; sourceTree = "<group>"; };
 		DDCB97511C27C64100A5DAD8 /* MyTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarViewController.h; sourceTree = "<group>"; };
@@ -1377,6 +1385,10 @@
 		DDA076901C28E4D900E3E856 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				DDA7B8A01C2FEA9200DF4F0A /* iconfont-bofangqishangyiqu.png */,
+				DDC71E4B1C2FF35F0009B50F /* iconfont-musicbofang.png */,
+				DDA7B8A11C2FEA9200DF4F0A /* iconfont-bofangqixiayiqu.png */,
+				DDA7B8A21C2FEA9200DF4F0A /* iconfont-zanting.png */,
 				DDA076911C28E4D900E3E856 /* shili0.png */,
 				DDA076921C28E4D900E3E856 /* shili1.png */,
 				DDA076931C28E4D900E3E856 /* shili10.png */,
@@ -1678,6 +1690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD9898EB1C19555800CED7D8 /* qrcode_scan_btn_myqrcode_nor@2x.png in Resources */,
+				DDC71E4C1C2FF35F0009B50F /* iconfont-musicbofang.png in Resources */,
 				DD6B90D51C2D33C6009C784E /* 矢量智能对象时长@2x.png in Resources */,
 				DDA0769C1C28E4D900E3E856 /* shili10.png in Resources */,
 				DDBC6CB71C2800620077EC6B /* iconfont-bofang-4.png in Resources */,
@@ -1735,11 +1748,14 @@
 				DD4040CF1C1881A0007EA804 /* ic_tab_select_normal@2x.png in Resources */,
 				DD9898E71C19555800CED7D8 /* qrcode_scan_bg_Green_iphone5@2x.png in Resources */,
 				DDCB97971C27EC1000A5DAD8 /* iconfont-weixin.png in Resources */,
+				DDA7B8A31C2FEA9200DF4F0A /* iconfont-bofangqishangyiqu.png in Resources */,
 				DD4040CB1C1881A0007EA804 /* ic_tab_home_normal@2x.png in Resources */,
 				DD85579B1C2A30560094DD6B /* UMSocialSDKResourcesNew.bundle in Resources */,
 				DDCB97961C27EC1000A5DAD8 /* iconfont-qqkongjian.png in Resources */,
+				DDA7B8A41C2FEA9200DF4F0A /* iconfont-bofangqixiayiqu.png in Resources */,
 				DD7A100B1C19CFF2004D67DE /* suite5_heartbeat_background@2x.png in Resources */,
 				DD4040CE1C1881A0007EA804 /* ic_tab_profile_selected_female@2x.png in Resources */,
+				DDA7B8A51C2FEA9200DF4F0A /* iconfont-zanting.png in Resources */,
 				DDCB97981C27EC1000A5DAD8 /* iconfont-xinlang.png in Resources */,
 				DD8557A31C2A30610094DD6B /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				DD8557911C2A30560094DD6B /* UMSocialLocalizable.strings in Resources */,

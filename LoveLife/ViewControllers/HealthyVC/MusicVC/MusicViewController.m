@@ -147,7 +147,9 @@
     //传值
     MusicModel * model = self.dataArray[indexPath.row];
     vc.titleString = model.title;
-    //vc.imageUrl
+    vc.imageUrl = model.coverURL;
+    vc.lrcInfo = model;
+    vc.lrcInfos = self.dataArray;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

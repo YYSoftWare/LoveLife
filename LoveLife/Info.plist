@@ -2,6 +2,45 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>mttbrowser</string>
+		<string>mqqbrowser</string>
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqzonewx</string>
+		<string>wtloginqzone</string>
+		<string>mqzoneshare</string>
+		<string>mqzonev2</string>
+		<string>mqzone</string>
+		<string>mqqwpa</string>
+		<string>wtloginmqq2</string>
+		<string>wtloginmqq</string>
+		<string>mqzoneopensdk</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqopensdkapi</string>
+		<string>mqqopensdkfriend</string>
+		<string>mqqopensdkgrouptribeshare</string>
+		<string>mqqopensdkdataline</string>
+		<string>mqqconnect</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqq</string>
+		<string>mqqapi</string>
+		<string>renreniphone</string>
+		<string>renren</string>
+		<string>renrenapi</string>
+		<string>renrenios</string>
+		<string>weibosdk2.5</string>
+		<string>weibosdk</string>
+		<string>sinaweibosso</string>
+		<string>sinaweibo</string>
+		<string>sinaweibohd</string>
+		<string>weixin</string>
+		<string>wechat</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
