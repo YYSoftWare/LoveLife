@@ -39,6 +39,11 @@
 
 @implementation FoodDetailViewController
 
+-(void)dealloc
+{
+    _tableView.delegate = nil;
+}
+
 #pragma mark - 隐藏导航条
 -(void)viewWillAppear:(BOOL)animated
 {

@@ -184,6 +184,11 @@
 		DDA076B01C2930C200E3E856 /* ArticalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA076AD1C2930C200E3E856 /* ArticalModel.m */; };
 		DDA076B11C2930C200E3E856 /* UtteranceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA076AF1C2930C200E3E856 /* UtteranceModel.m */; };
 		DDA076B51C29317A00E3E856 /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA076B41C29317A00E3E856 /* MusicModel.m */; };
+		DDA7B8961C2FBFDA00DF4F0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA7B8951C2FBFDA00DF4F0A /* libz.tbd */; };
+		DDA7B8981C2FBFE900DF4F0A /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA7B8971C2FBFE900DF4F0A /* libstdc++.tbd */; };
+		DDA7B89A1C2FBFF700DF4F0A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA7B8991C2FBFF700DF4F0A /* libsqlite3.tbd */; };
+		DDA7B89C1C2FC00500DF4F0A /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA7B89B1C2FC00500DF4F0A /* libiconv.tbd */; };
+		DDA7B89F1C2FC7B500DF4F0A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA7B89E1C2FC7B500DF4F0A /* AboutViewController.m */; };
 		DDB91DD31C21617B0009FA10 /* iconfont-fenxiang.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB91DD21C21617B0009FA10 /* iconfont-fenxiang.png */; };
 		DDBC6CB71C2800620077EC6B /* iconfont-bofang-4.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CB61C2800620077EC6B /* iconfont-bofang-4.png */; };
 		DDBC6CB91C28011D0077EC6B /* iconfont-xiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = DDBC6CB81C28011D0077EC6B /* iconfont-xiazai.png */; };
@@ -538,6 +543,12 @@
 		DDA076AF1C2930C200E3E856 /* UtteranceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtteranceModel.m; sourceTree = "<group>"; };
 		DDA076B31C29317A00E3E856 /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
 		DDA076B41C29317A00E3E856 /* MusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
+		DDA7B8951C2FBFDA00DF4F0A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		DDA7B8971C2FBFE900DF4F0A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		DDA7B8991C2FBFF700DF4F0A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		DDA7B89B1C2FC00500DF4F0A /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		DDA7B89D1C2FC7B500DF4F0A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		DDA7B89E1C2FC7B500DF4F0A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		DDB91DD21C21617B0009FA10 /* iconfont-fenxiang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-fenxiang.png"; sourceTree = "<group>"; };
 		DDBC6CB61C2800620077EC6B /* iconfont-bofang-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-bofang-4.png"; sourceTree = "<group>"; };
 		DDBC6CB81C28011D0077EC6B /* iconfont-xiazai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-xiazai.png"; sourceTree = "<group>"; };
@@ -605,6 +616,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA7B89C1C2FC00500DF4F0A /* libiconv.tbd in Frameworks */,
+				DDA7B89A1C2FBFF700DF4F0A /* libsqlite3.tbd in Frameworks */,
+				DDA7B8981C2FBFE900DF4F0A /* libstdc++.tbd in Frameworks */,
+				DDA7B8961C2FBFDA00DF4F0A /* libz.tbd in Frameworks */,
 				DD8557C51C2A31F90094DD6B /* libz.dylib in Frameworks */,
 				DD8557C31C2A31EB0094DD6B /* libstdc++.dylib in Frameworks */,
 				DD8557C11C2A31E10094DD6B /* CoreTelephony.framework in Frameworks */,
@@ -1202,6 +1217,10 @@
 		DD8557C61C2A32580094DD6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDA7B89B1C2FC00500DF4F0A /* libiconv.tbd */,
+				DDA7B8991C2FBFF700DF4F0A /* libsqlite3.tbd */,
+				DDA7B8971C2FBFE900DF4F0A /* libstdc++.tbd */,
+				DDA7B8951C2FBFDA00DF4F0A /* libz.tbd */,
 				DD8557C41C2A31F90094DD6B /* libz.dylib */,
 				DD8557C21C2A31EB0094DD6B /* libstdc++.dylib */,
 				DD8557C01C2A31E10094DD6B /* CoreTelephony.framework */,
@@ -1488,6 +1507,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCB97611C27C64100A5DAD8 /* CollectionVC */,
+				DDD4610B1C2FB4D8008DA912 /* AboutVC */,
 				DDCB97641C27C64100A5DAD8 /* MyViewController.h */,
 				DDCB97651C27C64100A5DAD8 /* MyViewController.m */,
 			);
@@ -1564,6 +1584,15 @@
 				DDCB978A1C27D1FB00A5DAD8 /* FoodDetailViewController.m */,
 			);
 			path = FoodDetail;
+			sourceTree = "<group>";
+		};
+		DDD4610B1C2FB4D8008DA912 /* AboutVC */ = {
+			isa = PBXGroup;
+			children = (
+				DDA7B89D1C2FC7B500DF4F0A /* AboutViewController.h */,
+				DDA7B89E1C2FC7B500DF4F0A /* AboutViewController.m */,
+			);
+			path = AboutVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1774,6 +1803,7 @@
 				DD753E7B1C204234000B4BAE /* MJRefreshAutoGifFooter.m in Sources */,
 				DDCB97761C27C64100A5DAD8 /* HomeDetaiViewController.m in Sources */,
 				DDCB977B1C27C64100A5DAD8 /* ArticalViewController.m in Sources */,
+				DDA7B89F1C2FC7B500DF4F0A /* AboutViewController.m in Sources */,
 				DD4040271C18671D007EA804 /* AFURLRequestSerialization.m in Sources */,
 				DD9898F21C19555800CED7D8 /* ZCZBarViewController.mm in Sources */,
 				DD84B9C71C2B845400D4D998 /* MusicPlayerViewController.m in Sources */,
@@ -1996,6 +2026,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/TencentOpenAPI",
@@ -2027,6 +2058,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/TencentOpenAPI",

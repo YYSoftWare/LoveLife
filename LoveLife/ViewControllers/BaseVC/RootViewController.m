@@ -30,7 +30,7 @@
     //设置导航颜色
     self.navigationController.navigationBar.barTintColor = RGB(255,156,187,1);
     //修改状态栏的颜色
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    //self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     //左按钮
     self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];

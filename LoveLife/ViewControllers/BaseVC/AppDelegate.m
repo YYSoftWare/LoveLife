@@ -36,9 +36,11 @@
     //主页面
     self.myTabBar = [[MyTabBarViewController alloc]init];
     FLSideSlipViewController * sliderVC = [[FLSideSlipViewController alloc]initWithRootViewController:self.myTabBar];
+    //设置
+    sliderVC.canSlideInPush = YES;
     //左页面
-    LeftViewController * leftVC = [[LeftViewController alloc]init];
-    sliderVC.leftViewController = leftVC;
+//    LeftViewController * leftVC = [[LeftViewController alloc]init];
+//    sliderVC.leftViewController = leftVC;
     
     self.window.rootViewController = sliderVC;
     
@@ -48,6 +50,9 @@
     [self checkNetWorkState];
     //注册友盟
     [self addUMShare];
+    
+    //设置状态栏的颜色为白色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     return YES;
 }

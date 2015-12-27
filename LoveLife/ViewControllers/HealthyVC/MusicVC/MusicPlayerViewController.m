@@ -89,7 +89,8 @@
     [self.view addSubview:titleLabel];
     
     //图片
-    //UIImageView * imageView = [FactoryUI createImageViewWithFrame:CGRectMake((SCREEN_W - 70) / 2, titleLabel.frame.size.height + titleLabel.frame.origin.y + 10, 70, 70) imageName:<#(NSString *)#>]
+    UIImageView * imageView = [FactoryUI createImageViewWithFrame:CGRectMake((SCREEN_W - 70) / 2, titleLabel.frame.size.height + titleLabel.frame.origin.y + 10, 70, 70) imageName:nil];
+    [self.view addSubview:imageView];
     
     //歌词展示
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, titleLabel.frame.size.height + titleLabel.frame.origin.y + 140, SCREEN_W - 40, 300) style:UITableViewStylePlain];
@@ -101,7 +102,16 @@
     //进度条
     _songSlider = [[UISlider alloc]initWithFrame:CGRectMake(20, SCREEN_H - 50, SCREEN_W - 20, 10)];
     _songSlider.continuous = NO;
+    [_songSlider addTarget:self action:@selector(sliderChange:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_songSlider];
+    
+    //播放按钮
+    NSArray * playButtonArray = @[@"",@"",@""];
+    for (int i = 0; i < playButtonArray.count; i++) {
+        UIButton * playButton = [FactoryUI createButtonWithFrame:CGRectMake(70 + i * 70, SCREEN_H - 40, 30, 30) title:nil titleColor:nil imageName:playButtonArray[i] backgroundImageName:nil target:self selector:@selector(playButtonClick:)];
+        playButton.tag = 30 + i;
+        [self.view addSubview:playButton];
+    }
 }
 
 #pragma mark - 刷新UI
@@ -252,6 +262,33 @@
 -(void)backButtonClick
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+//上一曲，下一曲，播放
+-(void)playButtonClick:(UIButton *)button
+{
+    switch (button.tag - 30) {
+        case 0:
+        {
+            //上一曲
+        }
+            break;
+        case 1:
+        {
+            //播放
+            
+        }
+            break;
+        case 2:
+        {
+            //下一曲
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

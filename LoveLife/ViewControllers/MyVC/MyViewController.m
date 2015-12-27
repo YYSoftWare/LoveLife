@@ -9,6 +9,7 @@
 #import "MyViewController.h"
 #import "MyCollectionViewController.h"
 #import "AppDelegate.h"
+#import "AboutViewController.h"
 
 @interface MyViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -175,7 +176,9 @@ static CGFloat kImageOriginHeight = 200;
     else
     {
         //关于
-        
+        AboutViewController * aboutVC = [[AboutViewController alloc]init];
+        aboutVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:aboutVC animated:YES];
     }
 }
 
