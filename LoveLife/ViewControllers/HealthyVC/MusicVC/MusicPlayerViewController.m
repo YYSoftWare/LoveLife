@@ -89,7 +89,7 @@
     [self.view addSubview:titleLabel];
     
     //演唱者
-    UILabel * artistLabel = [FactoryUI createLabelWithFrame:CGRectMake(SCREEN_W - 150, titleLabel.frame.size.height + titleLabel.frame.origin.y + 15, 140, 20) text:[NSString stringWithFormat:@"演唱者：%@",self.lrcInfo.artist] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:15]];
+    UILabel * artistLabel = [FactoryUI createLabelWithFrame:CGRectMake(SCREEN_W - 150, titleLabel.frame.size.height + titleLabel.frame.origin.y + 30, 140, 20) text:[NSString stringWithFormat:@"演唱者：%@",self.lrcInfo.artist] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:15]];
     artistLabel.textAlignment = NSTextAlignmentRight;
     [self.view addSubview:artistLabel];
     

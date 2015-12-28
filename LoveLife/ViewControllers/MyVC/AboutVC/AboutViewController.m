@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "ZCZBarViewController.h"
 
 @interface AboutViewController ()
 
@@ -17,8 +18,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self settingNav];
+    [self createUI];
 }
 
+#pragma mark - 创建UI
+-(void)createUI
+{
+    //生成二维码
+    UIImageView * imageView = [FactoryUI createImageViewWithFrame:CGRectMake((SCREEN_W - 200) / 2,150, 200, 200) imageName:nil];
+    [ZCZBarViewController createImageWithImageView:imageView String:@"www.baidu.com" Scale:4];
+    [self.view addSubview:imageView];
+}
+
+#pragma mark - 设置导航
 -(void)settingNav
 {
     self.titleLabel.text = @"关于";
