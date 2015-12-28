@@ -102,9 +102,6 @@
     _titleLabel.text = model.dishes_name;
     _detailLabel.text = model.material_desc;
     
-    //难易程度
-    NSArray * array = @[@"",@"",@""];
-    
 }
 
 #pragma mark - 创建头部视图

@@ -8,6 +8,7 @@
 
 #import "LeftViewController.h"
 #import "WeatherViewController.h"
+#import "MapViewController.h"
 
 @interface LeftViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -116,7 +117,8 @@
     else
     {
         //我的附近
-        
+        MapViewController * mapVC = [[MapViewController alloc]init];
+        [self presentViewController:mapVC animated:YES completion:nil];
     }
 }
 

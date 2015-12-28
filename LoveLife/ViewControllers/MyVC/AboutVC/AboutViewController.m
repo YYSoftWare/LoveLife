@@ -28,6 +28,11 @@
     UIImageView * imageView = [FactoryUI createImageViewWithFrame:CGRectMake((SCREEN_W - 200) / 2,150, 200, 200) imageName:nil];
     [ZCZBarViewController createImageWithImageView:imageView String:@"www.baidu.com" Scale:4];
     [self.view addSubview:imageView];
+    
+    //标题
+    UILabel * tipLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, SCREEN_H - 200, SCREEN_W, 25) text:@"扫一扫，关注我们" textColor:[UIColor darkGrayColor] font:[UIFont systemFontOfSize:22]];
+    tipLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:tipLabel];
 }
 
 #pragma mark - 设置导航

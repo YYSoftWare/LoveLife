@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0FE7B11C30F4B3006085DF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0FE7B01C30F4B3006085DF /* MapViewController.m */; };
 		DD10489A1C1AAB8300189672 /* LikeBtn1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1048991C1AAB8300189672 /* LikeBtn1.png */; };
 		DD10489C1C1AAB8B00189672 /* LikeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10489B1C1AAB8B00189672 /* LikeBtn.png */; };
 		DD403FE91C181B78007EA804 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD403FE81C181B78007EA804 /* main.m */; };
@@ -261,6 +262,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD0FE7AF1C30F4B3006085DF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		DD0FE7B01C30F4B3006085DF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		DD1048991C1AAB8300189672 /* LikeBtn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LikeBtn1.png; sourceTree = "<group>"; };
 		DD10489B1C1AAB8B00189672 /* LikeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LikeBtn.png; sourceTree = "<group>"; };
 		DD403FE31C181B78007EA804 /* LoveLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -703,6 +706,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD0FE7AE1C30F4A7006085DF /* MapVC */ = {
+			isa = PBXGroup;
+			children = (
+				DD0FE7AF1C30F4B3006085DF /* MapViewController.h */,
+				DD0FE7B01C30F4B3006085DF /* MapViewController.m */,
+			);
+			path = MapVC;
+			sourceTree = "<group>";
+		};
 		DD1048981C1AAB7A00189672 /* My */ = {
 			isa = PBXGroup;
 			children = (
@@ -1577,6 +1589,7 @@
 		DDCB974D1C27C64100A5DAD8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD0FE7AE1C30F4A7006085DF /* MapVC */,
 				DDB7BBC21C30315C00457C0E /* LoginVC */,
 				DDCB974E1C27C64100A5DAD8 /* BaseVC */,
 				DD6B82FF1C301ADC00C7BDFE /* WeatherVC */,
@@ -2012,6 +2025,7 @@
 				DD4040591C186723007EA804 /* UIImageView+HighlightedWebCache.m in Sources */,
 				DD4040501C186723007EA804 /* SDWebImageDecoder.m in Sources */,
 				DD753E7D1C204234000B4BAE /* MJRefreshAutoStateFooter.m in Sources */,
+				DD0FE7B11C30F4B3006085DF /* MapViewController.m in Sources */,
 				DD664E001C2CDBEA001FDEE1 /* FMDatabase.m in Sources */,
 				DD73E3411C2BD4C500752021 /* LZZLrcAnlisis.m in Sources */,
 				DD7A10061C19C8BC004D67DE /* ZLSwipeableView.m in Sources */,
