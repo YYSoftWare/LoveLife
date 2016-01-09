@@ -17,6 +17,10 @@
 		DD0A27581C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27571C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd */; };
 		DD0A275A1C3F9CB7005EB5F5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27591C3F9CB7005EB5F5 /* libc++.tbd */; };
 		DD0A275E1C3FA604005EB5F5 /* weatherImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0A275D1C3FA604005EB5F5 /* weatherImage.jpg */; };
+		DD0A27641C40B422005EB5F5 /* qingtian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0A27601C40B422005EB5F5 /* qingtian.jpg */; };
+		DD0A27651C40B422005EB5F5 /* xuetian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0A27611C40B422005EB5F5 /* xuetian.jpg */; };
+		DD0A27661C40B422005EB5F5 /* yintian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0A27621C40B422005EB5F5 /* yintian.jpg */; };
+		DD0A27671C40B422005EB5F5 /* yutian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0A27631C40B422005EB5F5 /* yutian.jpg */; };
 		DD0FE7B11C30F4B3006085DF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0FE7B01C30F4B3006085DF /* MapViewController.m */; };
 		DD10489A1C1AAB8300189672 /* LikeBtn1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1048991C1AAB8300189672 /* LikeBtn1.png */; };
 		DD10489C1C1AAB8B00189672 /* LikeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10489B1C1AAB8B00189672 /* LikeBtn.png */; };
@@ -281,6 +285,10 @@
 		DD0A27571C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		DD0A27591C3F9CB7005EB5F5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		DD0A275D1C3FA604005EB5F5 /* weatherImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = weatherImage.jpg; sourceTree = "<group>"; };
+		DD0A27601C40B422005EB5F5 /* qingtian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = qingtian.jpg; sourceTree = "<group>"; };
+		DD0A27611C40B422005EB5F5 /* xuetian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xuetian.jpg; sourceTree = "<group>"; };
+		DD0A27621C40B422005EB5F5 /* yintian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yintian.jpg; sourceTree = "<group>"; };
+		DD0A27631C40B422005EB5F5 /* yutian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yutian.jpg; sourceTree = "<group>"; };
 		DD0FE7AF1C30F4B3006085DF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		DD0FE7B01C30F4B3006085DF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		DD1048991C1AAB8300189672 /* LikeBtn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LikeBtn1.png; sourceTree = "<group>"; };
@@ -731,6 +739,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD0A275F1C40B329005EB5F5 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				DD0A27601C40B422005EB5F5 /* qingtian.jpg */,
+				DD0A27611C40B422005EB5F5 /* xuetian.jpg */,
+				DD0A27621C40B422005EB5F5 /* yintian.jpg */,
+				DD0A27631C40B422005EB5F5 /* yutian.jpg */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		DD0FE7AE1C30F4A7006085DF /* MapVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +921,7 @@
 		DD4040B71C1881A0007EA804 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DD0A275F1C40B329005EB5F5 /* Weather */,
 				DD89B7821C3033DB0092FE15 /* logoImage */,
 				DDA076901C28E4D900E3E856 /* Music */,
 				DDCB97811C27C7D100A5DAD8 /* Food */,
@@ -1898,11 +1918,13 @@
 				DD4040D61C1881A0007EA804 /* welcome6.png in Resources */,
 				DD9898E81C19555800CED7D8 /* qrcode_scan_btn_flash_down@2x.png in Resources */,
 				DD4040CA1C1881A0007EA804 /* ic_tab_category_selected@2x.png in Resources */,
+				DD0A27651C40B422005EB5F5 /* xuetian.jpg in Resources */,
 				DD4040D51C1881A0007EA804 /* welcome5.png in Resources */,
 				DD9898B91C191B3C00CED7D8 /* icon_function.png in Resources */,
 				DD6B82FD1C30129100C7BDFE /* iconfont-chatianqi.png in Resources */,
 				DDBC6CC41C2827EE0077EC6B /* iconfont-iconfontmeishi-2.png in Resources */,
 				DD4040CC1C1881A0007EA804 /* ic_tab_home_selected@2x.png in Resources */,
+				DD0A27661C40B422005EB5F5 /* yintian.jpg in Resources */,
 				DD6B90D41C2D33C6009C784E /* 矢量智能对象难易度@3x.png in Resources */,
 				DDA076A01C28E4D900E3E856 /* shili2.png in Resources */,
 				DD84B9C91C2B8BAA00D4D998 /* 15f81d189d5044b8ff2f825c0cbf1d24.jpg in Resources */,
@@ -1913,6 +1935,7 @@
 				DD73E3211C2B976D00752021 /* iconfont-shangyishou.png in Resources */,
 				DD9899071C19732A00CED7D8 /* LinkedIn.png in Resources */,
 				DD73E3221C2B976D00752021 /* iconfont-xiayishou.png in Resources */,
+				DD0A27671C40B422005EB5F5 /* yutian.jpg in Resources */,
 				DD0A274E1C3F9C15005EB5F5 /* AMap.bundle in Resources */,
 				DD6B90D31C2D33C6009C784E /* 矢量智能对象难易度@2x.png in Resources */,
 				DD7A0FFE1C19C14A004D67DE /* health2.png in Resources */,
@@ -1934,6 +1957,7 @@
 				DD8557911C2A30560094DD6B /* UMSocialLocalizable.strings in Resources */,
 				DD6B90D81C2D4076009C784E /* 5.jpg in Resources */,
 				DD9898E91C19555800CED7D8 /* qrcode_scan_btn_flash_nor@2x.png in Resources */,
+				DD0A27641C40B422005EB5F5 /* qingtian.jpg in Resources */,
 				DDEAD8DF1C219B2700349FDC /* iconfont-lajitong.png in Resources */,
 				DD4040D01C1881A0007EA804 /* ic_tab_select_selected@2x.png in Resources */,
 				DD4040C91C1881A0007EA804 /* ic_tab_category_normal@2x.png in Resources */,

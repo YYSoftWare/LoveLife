@@ -21,6 +21,7 @@
     UILabel * _windPowerLabel;
     UILabel * _humidityLabel;
     UILabel * _reportTimeLabel;
+    UILabel * _timeLabel;
 }
 
 @end
@@ -30,7 +31,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"weatherImage.jpg"]];
     [self createUI];
     [self createWeatherSearch];
 }
@@ -56,6 +56,22 @@
     _weatherLabel = [FactoryUI createLabelWithFrame:CGRectMake(SCREEN_W / 2 + 30, _temperatureLabel.frame.origin.y, SCREEN_W / 2, 50) text:nil textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:60]];
     _weatherLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:_weatherLabel];
+    
+    //发布时间
+    _timeLabel = [FactoryUI createLabelWithFrame:CGRectMake(10, SCREEN_H + 64 - 30, SCREEN_W - 20, 20) text:nil textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:16]];
+    _timeLabel.textAlignment = NSTextAlignmentRight;
+    [self.view addSubview:_timeLabel];
+    
+    //风向和风级
+    _windPowerLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, _weatherLabel.frame.size.height + _weatherLabel.frame.origin.y + 100 , SCREEN_W, 30) text:nil textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:25]];
+    _windPowerLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_windPowerLabel];
+    
+    //湿度
+    _humidityLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, _windPowerLabel.frame.size.height + _windPowerLabel.frame.origin.y + 70, SCREEN_W, 30) text:nil textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:25]];
+    _humidityLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_humidityLabel];
+    
 }
 
 #pragma mark - 天气查询
@@ -95,6 +111,31 @@
             _cityLabel.text = live.city;
             _temperatureLabel.text = [NSString stringWithFormat:@"%@℃",live.temperature];
             _weatherLabel.text = live.weather;
+            _timeLabel.text = [NSString stringWithFormat:@"数据更新时间：%@",live.reportTime];
+            _windPowerLabel.text = [NSString stringWithFormat:@"%@风：%@级",live.windDirection,live.windPower];
+            _humidityLabel.text = [NSString stringWithFormat:@"湿度:%@%%",live.humidity];
+            
+            //根据天气情况设置图片
+            if ([live.weather isEqualToString:@"晴"])
+            {
+                //晴天
+                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"qingtian.jpg"]];
+            }
+            else if ([live.weather isEqualToString:@""])
+            {
+                //阴天
+                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yintian.jpg"]];
+            }
+            else if ([live.weather isEqualToString:@""])
+            {
+                //雪天
+                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"xuetian.jpg"]];
+            }
+            else
+            {
+                //雨天
+                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"yutian.jpg"]];
+            }
         }
     }
     //如果是预报天气
