@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0A274A1C3F97C8005EB5F5 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27491C3F97C8005EB5F5 /* MAMapKit.framework */; };
+		DD0A274C1C3F9A40005EB5F5 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A274B1C3F9A40005EB5F5 /* AMapSearchKit.framework */; };
+		DD0A274E1C3F9C15005EB5F5 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD0A274D1C3F9C15005EB5F5 /* AMap.bundle */; };
+		DD0A27501C3F9C4A005EB5F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A274F1C3F9C4A005EB5F5 /* UIKit.framework */; };
+		DD0A27521C3F9C58005EB5F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27511C3F9C58005EB5F5 /* Foundation.framework */; };
+		DD0A27541C3F9C70005EB5F5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27531C3F9C70005EB5F5 /* OpenGLES.framework */; };
+		DD0A27561C3F9C7A005EB5F5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27551C3F9C7A005EB5F5 /* CoreLocation.framework */; };
+		DD0A27581C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27571C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd */; };
+		DD0A275A1C3F9CB7005EB5F5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A27591C3F9CB7005EB5F5 /* libc++.tbd */; };
+		DD0A275E1C3FA604005EB5F5 /* weatherImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0A275D1C3FA604005EB5F5 /* weatherImage.jpg */; };
 		DD0FE7B11C30F4B3006085DF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0FE7B01C30F4B3006085DF /* MapViewController.m */; };
 		DD10489A1C1AAB8300189672 /* LikeBtn1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1048991C1AAB8300189672 /* LikeBtn1.png */; };
 		DD10489C1C1AAB8B00189672 /* LikeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10489B1C1AAB8B00189672 /* LikeBtn.png */; };
@@ -70,7 +80,6 @@
 		DD6B82F91C30077600C7BDFE /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B82F51C30077600C7BDFE /* UIViewController+MMDrawerController.m */; };
 		DD6B82FD1C30129100C7BDFE /* iconfont-chatianqi.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B82FB1C30129100C7BDFE /* iconfont-chatianqi.png */; };
 		DD6B82FE1C30129100C7BDFE /* iconfont-ditu.png in Resources */ = {isa = PBXBuildFile; fileRef = DD6B82FC1C30129100C7BDFE /* iconfont-ditu.png */; };
-		DD6B83041C301ADC00C7BDFE /* ChooseProvinceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B83011C301ADC00C7BDFE /* ChooseProvinceViewController.m */; };
 		DD6B83051C301ADC00C7BDFE /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B83031C301ADC00C7BDFE /* WeatherViewController.m */; };
 		DD6B83091C301DE200C7BDFE /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B83081C301DE200C7BDFE /* WeatherModel.m */; };
 		DD6B830D1C301EBC00C7BDFE /* WeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B830C1C301EBC00C7BDFE /* WeatherViewCell.m */; };
@@ -262,6 +271,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD0A27491C3F97C8005EB5F5 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = LoveLife/MAMapKit.framework; sourceTree = SOURCE_ROOT; };
+		DD0A274B1C3F9A40005EB5F5 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = LoveLife/AMapSearchKit.framework; sourceTree = SOURCE_ROOT; };
+		DD0A274D1C3F9C15005EB5F5 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = LoveLife/MAMapKit.framework/Versions/3.2.1.94eef6d.752/Resources/AMap.bundle; sourceTree = "<group>"; };
+		DD0A274F1C3F9C4A005EB5F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DD0A27511C3F9C58005EB5F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DD0A27531C3F9C70005EB5F5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		DD0A27551C3F9C7A005EB5F5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DD0A27571C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		DD0A27591C3F9CB7005EB5F5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		DD0A275D1C3FA604005EB5F5 /* weatherImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = weatherImage.jpg; sourceTree = "<group>"; };
 		DD0FE7AF1C30F4B3006085DF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		DD0FE7B01C30F4B3006085DF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		DD1048991C1AAB8300189672 /* LikeBtn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LikeBtn1.png; sourceTree = "<group>"; };
@@ -368,8 +387,6 @@
 		DD6B82F51C30077600C7BDFE /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		DD6B82FB1C30129100C7BDFE /* iconfont-chatianqi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-chatianqi.png"; sourceTree = "<group>"; };
 		DD6B82FC1C30129100C7BDFE /* iconfont-ditu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-ditu.png"; sourceTree = "<group>"; };
-		DD6B83001C301ADC00C7BDFE /* ChooseProvinceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseProvinceViewController.h; sourceTree = "<group>"; };
-		DD6B83011C301ADC00C7BDFE /* ChooseProvinceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseProvinceViewController.m; sourceTree = "<group>"; };
 		DD6B83021C301ADC00C7BDFE /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
 		DD6B83031C301ADC00C7BDFE /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		DD6B83071C301DE200C7BDFE /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
@@ -668,21 +685,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD8557B91C2A31AD0094DD6B /* Security.framework in Frameworks */,
+				DD0A275A1C3F9CB7005EB5F5 /* libc++.tbd in Frameworks */,
+				DD0A27581C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd in Frameworks */,
+				DDA7B8961C2FBFDA00DF4F0A /* libz.tbd in Frameworks */,
+				DD8557BB1C2A31BE0094DD6B /* SystemConfiguration.framework in Frameworks */,
+				DD8557C11C2A31E10094DD6B /* CoreTelephony.framework in Frameworks */,
+				DD0A27561C3F9C7A005EB5F5 /* CoreLocation.framework in Frameworks */,
+				DD0A27541C3F9C70005EB5F5 /* OpenGLES.framework in Frameworks */,
+				DD9898FA1C19567300CED7D8 /* QuartzCore.framework in Frameworks */,
+				DD8557BD1C2A31CA0094DD6B /* CoreGraphics.framework in Frameworks */,
+				DD0A27521C3F9C58005EB5F5 /* Foundation.framework in Frameworks */,
+				DD0A27501C3F9C4A005EB5F5 /* UIKit.framework in Frameworks */,
 				DDA7B89C1C2FC00500DF4F0A /* libiconv.tbd in Frameworks */,
 				DDA7B89A1C2FBFF700DF4F0A /* libsqlite3.tbd in Frameworks */,
 				DDA7B8981C2FBFE900DF4F0A /* libstdc++.tbd in Frameworks */,
-				DDA7B8961C2FBFDA00DF4F0A /* libz.tbd in Frameworks */,
 				DD8557C51C2A31F90094DD6B /* libz.dylib in Frameworks */,
 				DD8557C31C2A31EB0094DD6B /* libstdc++.dylib in Frameworks */,
-				DD8557C11C2A31E10094DD6B /* CoreTelephony.framework in Frameworks */,
 				DD8557BF1C2A31D40094DD6B /* libsqlite3.dylib in Frameworks */,
-				DD8557BD1C2A31CA0094DD6B /* CoreGraphics.framework in Frameworks */,
-				DD8557BB1C2A31BE0094DD6B /* SystemConfiguration.framework in Frameworks */,
-				DD8557B91C2A31AD0094DD6B /* Security.framework in Frameworks */,
 				DD8557A11C2A30610094DD6B /* libSocialQQ.a in Frameworks */,
 				DD8557A21C2A30610094DD6B /* TencentOpenAPI.framework in Frameworks */,
 				DD9898FC1C19567B00CED7D8 /* libiconv.dylib in Frameworks */,
-				DD9898FA1C19567300CED7D8 /* QuartzCore.framework in Frameworks */,
 				DD9898F81C19566C00CED7D8 /* CoreVideo.framework in Frameworks */,
 				DD8557AB1C2A30690094DD6B /* libWeChatSDK.a in Frameworks */,
 				DD8557B71C2A30860094DD6B /* libYixinSDK_V2.2.a in Frameworks */,
@@ -691,7 +714,9 @@
 				DD8557AA1C2A30690094DD6B /* libSocialWechat.a in Frameworks */,
 				DD8557921C2A30560094DD6B /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				DD9898F41C19565D00CED7D8 /* AVFoundation.framework in Frameworks */,
+				DD0A274C1C3F9A40005EB5F5 /* AMapSearchKit.framework in Frameworks */,
 				DD9898E41C19555800CED7D8 /* libzbar.a in Frameworks */,
+				DD0A274A1C3F97C8005EB5F5 /* MAMapKit.framework in Frameworks */,
 				DD8557AF1C2A30750094DD6B /* libSocialSina.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,6 +758,7 @@
 		DD403FDA1C181B78007EA804 = {
 			isa = PBXGroup;
 			children = (
+				DD0A274D1C3F9C15005EB5F5 /* AMap.bundle */,
 				DD8557C61C2A32580094DD6B /* Frameworks */,
 				DD403FE51C181B78007EA804 /* LoveLife */,
 				DD403FFF1C181B78007EA804 /* LoveLifeTests */,
@@ -970,6 +996,7 @@
 		DD6B82FA1C30128100C7BDFE /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				DD0A275D1C3FA604005EB5F5 /* weatherImage.jpg */,
 				DD6B82FB1C30129100C7BDFE /* iconfont-chatianqi.png */,
 				DD6B82FC1C30129100C7BDFE /* iconfont-ditu.png */,
 			);
@@ -979,8 +1006,6 @@
 		DD6B82FF1C301ADC00C7BDFE /* WeatherVC */ = {
 			isa = PBXGroup;
 			children = (
-				DD6B83001C301ADC00C7BDFE /* ChooseProvinceViewController.h */,
-				DD6B83011C301ADC00C7BDFE /* ChooseProvinceViewController.m */,
 				DD6B83021C301ADC00C7BDFE /* WeatherViewController.h */,
 				DD6B83031C301ADC00C7BDFE /* WeatherViewController.m */,
 			);
@@ -1336,6 +1361,14 @@
 		DD8557C61C2A32580094DD6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD0A27591C3F9CB7005EB5F5 /* libc++.tbd */,
+				DD0A27571C3F9CA5005EB5F5 /* libstdc++.6.0.9.tbd */,
+				DD0A27551C3F9C7A005EB5F5 /* CoreLocation.framework */,
+				DD0A27531C3F9C70005EB5F5 /* OpenGLES.framework */,
+				DD0A27511C3F9C58005EB5F5 /* Foundation.framework */,
+				DD0A274F1C3F9C4A005EB5F5 /* UIKit.framework */,
+				DD0A274B1C3F9A40005EB5F5 /* AMapSearchKit.framework */,
+				DD0A27491C3F97C8005EB5F5 /* MAMapKit.framework */,
 				DDA7B89B1C2FC00500DF4F0A /* libiconv.tbd */,
 				DDA7B8991C2FBFF700DF4F0A /* libsqlite3.tbd */,
 				DDA7B8971C2FBFE900DF4F0A /* libstdc++.tbd */,
@@ -1829,6 +1862,7 @@
 				DDC71E4C1C2FF35F0009B50F /* iconfont-musicbofang.png in Resources */,
 				DD6B90D51C2D33C6009C784E /* 矢量智能对象时长@2x.png in Resources */,
 				DDA0769C1C28E4D900E3E856 /* shili10.png in Resources */,
+				DD0A275E1C3FA604005EB5F5 /* weatherImage.jpg in Resources */,
 				DDBC6CB71C2800620077EC6B /* iconfont-bofang-4.png in Resources */,
 				DD6B90D21C2D33C6009C784E /* 矢量智能对象口味@3x.png in Resources */,
 				DD7A0FFA1C19BFC3004D67DE /* 2vm.png in Resources */,
@@ -1879,6 +1913,7 @@
 				DD73E3211C2B976D00752021 /* iconfont-shangyishou.png in Resources */,
 				DD9899071C19732A00CED7D8 /* LinkedIn.png in Resources */,
 				DD73E3221C2B976D00752021 /* iconfont-xiayishou.png in Resources */,
+				DD0A274E1C3F9C15005EB5F5 /* AMap.bundle in Resources */,
 				DD6B90D31C2D33C6009C784E /* 矢量智能对象难易度@2x.png in Resources */,
 				DD7A0FFE1C19C14A004D67DE /* health2.png in Resources */,
 				DD4040D21C1881A0007EA804 /* welcome2.png in Resources */,
@@ -2003,7 +2038,6 @@
 				DD664E041C2CDBEA001FDEE1 /* FMResultSet.m in Sources */,
 				DD753E771C204234000B4BAE /* MJRefreshBackFooter.m in Sources */,
 				DD6B83091C301DE200C7BDFE /* WeatherModel.m in Sources */,
-				DD6B83041C301ADC00C7BDFE /* ChooseProvinceViewController.m in Sources */,
 				DD40404F1C186723007EA804 /* SDWebImageCompat.m in Sources */,
 				DD753E791C204234000B4BAE /* MJRefreshFooter.m in Sources */,
 				DD753E861C204234000B4BAE /* UIScrollView+MJExtension.m in Sources */,
@@ -2198,6 +2232,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/TencentOpenAPI",
+					"$(PROJECT_DIR)/LoveLife",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveLife/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -2215,6 +2250,7 @@
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/Sina",
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/YiXin",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2230,6 +2266,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/TencentOpenAPI",
+					"$(PROJECT_DIR)/LoveLife",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LoveLife/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -2247,6 +2284,7 @@
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/Sina",
 					"$(PROJECT_DIR)/LoveLife/ThirdLibrary/UMShare/YiXin",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

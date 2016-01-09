@@ -111,8 +111,8 @@
     if (indexPath.row == 0)
     {
         //天气查询
-//        WeatherViewController * weatherVC = [[WeatherViewController alloc]init];
-//        [self presentViewController:weatherVC animated:YES completion:nil];
+        WeatherViewController * weatherVC = [[WeatherViewController alloc]init];
+        [self presentViewController:weatherVC animated:YES completion:nil];
     }
     else
     {

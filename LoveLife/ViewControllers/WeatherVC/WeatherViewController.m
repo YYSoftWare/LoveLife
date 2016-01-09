@@ -7,16 +7,22 @@
 //
 
 #import "WeatherViewController.h"
-#import "WeatherModel.h"
-#import "WeatherViewCell.h"
-#import "ChooseProvinceViewController.h"
-@interface WeatherViewController ()<ChooseProvinceDelegate,UITableViewDataSource,UITableViewDelegate>
+#import <AMapSearchKit/AMapSearchKit.h>
+
+@interface WeatherViewController ()<AMapSearchDelegate>
 {
-    WeatherModel *_model;
-    UITableView *_tableView;
-    NSMutableArray *_dataArr;
-    NSString *_cityName;
+    AMapSearchAPI * _search;
+    
+    //控件
+    UILabel * _cityLabel;
+    UILabel * _weatherLabel;
+    UILabel * _temperatureLabel;
+    UILabel * _windDirectionLabel;
+    UILabel * _windPowerLabel;
+    UILabel * _humidityLabel;
+    UILabel * _reportTimeLabel;
 }
+
 @end
 
 @implementation WeatherViewController
@@ -24,134 +30,84 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-     _cityName = @"北京";
-    [self createNavBar];
-    [self getTheDataUseAF];
-    [self createTableView];
-    [self reloadLocalData];
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"weatherImage.jpg"]];
+    [self createUI];
+    [self createWeatherSearch];
 }
 
-//读取本地数据
-- (void)reloadLocalData
+#pragma mark - 创建UI
+-(void)createUI
 {
-    NSData *data = [self readLocal];
-    if (data)
+    //返回按钮
+    UIButton * backButton = [FactoryUI createButtonWithFrame:CGRectMake(10, 20, 30, 30) title:nil titleColor:nil imageName:@"iconfont-back" backgroundImageName:nil target:self selector:@selector(backButtonClick)];
+    [self.view addSubview:backButton];
+    
+    //城市名
+    _cityLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, 50, SCREEN_W, 50) text:nil textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:30]];
+    _cityLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_cityLabel];
+    
+    //温度
+    _temperatureLabel = [FactoryUI createLabelWithFrame:CGRectMake(0, _cityLabel.frame.size.height + _cityLabel.frame.origin.y + 50, SCREEN_W / 2, 50) text:nil textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:60]];
+    _temperatureLabel.textAlignment = NSTextAlignmentRight;
+    [self.view addSubview:_temperatureLabel];
+    
+    //天气现象
+    _weatherLabel = [FactoryUI createLabelWithFrame:CGRectMake(SCREEN_W / 2 + 30, _temperatureLabel.frame.origin.y, SCREEN_W / 2, 50) text:nil textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:60]];
+    _weatherLabel.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:_weatherLabel];
+}
+
+#pragma mark - 天气查询
+-(void)createWeatherSearch
+{
+    //配置用户key
+    [AMapSearchServices sharedServices].apiKey = @"ca14c615c81bd5a2e390368a62eca0ba";
+    
+    //初始化检索对象
+    _search = [[AMapSearchAPI alloc]init];
+    //设置代理
+    _search.delegate = self;
+    
+    //构造对象，配置查询参数
+    AMapWeatherSearchRequest * weatherRequest = [[AMapWeatherSearchRequest alloc]init];
+    //设置城市
+    weatherRequest.city = @"北京";
+    //设置天气类型，为实时天气还是预报天气
+    weatherRequest.type = AMapWeatherTypeLive;
+    
+    //发起行政区域规划
+    [_search AMapWeatherSearch:weatherRequest];
+}
+
+//实时天气查询的回调函数
+-(void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response
+{
+    //如果是实时天气
+    if (request.type == AMapWeatherTypeLive)
     {
-        [self analyzeTheData:data];
+        if (response.lives.count == 0) {
+            return;
+        }
+        
+        for (AMapLocalWeatherLive  * live in response.lives) {
+            //获取天气各项指标,刷新界面
+            _cityLabel.text = live.city;
+            _temperatureLabel.text = [NSString stringWithFormat:@"%@℃",live.temperature];
+            _weatherLabel.text = live.weather;
+        }
+    }
+    //如果是预报天气
+    else
+    {
         
     }
 }
 
-#pragma maek - 创建tableView
-- (void)createTableView
+#pragma mark - 返回按钮
+-(void)backButtonClick
 {
-    _dataArr = [[NSMutableArray alloc]initWithCapacity:0];
-    _tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
-    _tableView.bounces = NO;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.alwaysBounceVertical = NO;
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [_tableView registerClass:NSClassFromString(@"WeatherViewCell") forCellReuseIdentifier:@"110"];
-    [self.view addSubview:_tableView];
-}
-
-#pragma mark - 设置导航
-- (void)createNavBar
-{
-    UIBarButtonItem *chooseCity = [[UIBarButtonItem alloc]initWithTitle:@"切换城市" style:UIBarButtonItemStyleDone target:self action:@selector(goChooseCity)];
-    self.navigationItem.rightBarButtonItem = chooseCity;
-}
-
-#pragma mark - 读取网络数据
-- (void)getTheDataUseAF
-{
-    [_dataArr removeAllObjects];
-   
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSString *urlStr = [NSString stringWithFormat:WEATHER,_cityName];
-    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-        [self writeToLocal:responseObject];
-        [self analyzeTheData:responseObject];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    }];
-    
-}
-
-#pragma maek - 解析数据
-- (void)analyzeTheData:(NSData *)data
-{
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    _model = [[WeatherModel alloc]init];
-    _model.date = dic[@"date"];
-    _model.results = dic[@"results"];
-    _model.weather_data = dic[@"results"][0][@"weather_data"];
-    [_dataArr addObject:_model];
-    [_tableView reloadData];
-   
-}
-
-#pragma mark tableViewDelegate
-
-- (NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _dataArr.count;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return self.view.bounds.size.height-64;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    WeatherViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"110" forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[WeatherViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"110"];
-    }
-    WeatherModel *model = _dataArr[indexPath.row];
-    [cell relyoutUI:model];
-    
-    return cell;
-}
-
-#pragma mark - 选择城市
-- (void)goChooseCity
-{
-    ChooseProvinceViewController *chooseVC = [[ChooseProvinceViewController alloc]init];
-    chooseVC.delegate = self;
-    [self.navigationController pushViewController:chooseVC animated:YES];
-}
-
-//返回城市名称
-- (void)backTheCityName:(NSString *)city{
-    _cityName = city;
-    [self getTheDataUseAF];
-}
-
-#pragma mark - 做数据的本地化
-- (void)writeToLocal:(NSData *)data
-{
-    NSString *path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/huancun/%@.txt",NSStringFromClass([self class])];
-    
-    [data writeToFile:path atomically:YES];
-}
-
-#pragma mark - 从本地读取数据
-- (NSData *)readLocal
-{
-    NSString *path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/huancun/%@.txt",NSStringFromClass([self class])];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path])
-    {
-        return [NSData dataWithContentsOfFile:path];
-    }
-    return nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -191,11 +191,68 @@ static CGFloat kImageOriginHeight = 200;
     else
     {
         //推送消息
-        
+        if (swi.on) {
+            //创建本地推送任务
+            [self createLocalNotification];
+        }
+        else
+        {
+            //取消推送任务
+            [self cancelLocalNotification];
+        }
+    }
+}
+
+#pragma mark - 推送
+-(void)createLocalNotification
+{
+    //解决iOS8以后本地推送无法接收到推送消息的问题
+    //获取系统的版本号
+    float systemVersion = [[UIDevice currentDevice].systemVersion floatValue];
+    if (systemVersion >= 8.0)
+    {
+        //设置推送消息的类型
+        UIUserNotificationType type = UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound;
+        //将类型添加到设置里
+        UIUserNotificationSettings * settings = [UIUserNotificationSettings settingsForTypes:type categories:nil];
+        //将设置内容注册到系统管理里面
+        [[UIApplication sharedApplication]registerUserNotificationSettings:settings];
     }
     
-    
+    //初始化本地推送
+    UILocalNotification * localNotification = [[UILocalNotification alloc]init];
+    //设置从当前开始什么时候开始推送
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
+    //设置需要推送的重复周期
+    localNotification.repeatInterval = NSCalendarUnitDay;
+    //设置推送的时区
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    //设置推送内容
+    localNotification.alertBody = @"亲~~~你好久没来爱生活了，快来看看我吧！";
+    //设置推送时的音效
+    localNotification.soundName = @"";
+    //设置提示消息的个数
+    localNotification.applicationIconBadgeNumber = 1;
+    //将推送任务添加到系统管理里面
+    [[UIApplication sharedApplication]scheduleLocalNotification:localNotification];
 }
+
+-(void)cancelLocalNotification
+{
+    //第一种，直接取消全部的推送任务
+    //[[UIApplication sharedApplication]cancelAllLocalNotifications];
+    
+    //第二种，取消指定条件下的推送任务
+    NSArray * array = [[UIApplication sharedApplication]scheduledLocalNotifications];
+    for (UILocalNotification * noti in array) {
+        if ([noti.alertBody isEqualToString:@"亲~~~你好久没来爱生活了，快来看看我吧！"]) {
+            [[UIApplication sharedApplication]cancelLocalNotification:noti];
+            //取消推送任务后重置icon 的数值
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }
+    }
+}
+
 
 #pragma mark - scrollView的代理方法
 
