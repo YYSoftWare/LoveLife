@@ -8,7 +8,7 @@
 
 #import "ArticalDetailViewController.h"
 #import "UMSocial.h"
-#import "GDDataManager.h"
+#import "DBManager.h"
 
 @interface ArticalDetailViewController ()
 {
@@ -23,11 +23,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    GDDataManager * manager = [GDDataManager shareManager];
-    __block BOOL isHas = [manager findDataWithTitle:self.model.title];
-    if (isHas) {
-        _collectButton.selected = YES;
+    DBManager * manager = [DBManager defaultManager];
+    if ([manager isHasDataIDFromTable:self.model.dataID]) {
+        UIButton * button = [self.view viewWithTag:10];
+        button.selected = YES;
+        [button setImage:[UIImage imageNamed:@"iconfont-iconfontshoucang-2"] forState:UIControlStateSelected];
     }
+
 }
 
 - (void)viewDidLoad {
@@ -77,31 +79,24 @@
 -(void)collecButtonClick:(UIButton *)button
 {
     button.selected = YES;
-    if (button.selected == YES) {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"收藏成功" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    DBManager * manager = [DBManager defaultManager];
+    if ([manager isHasDataIDFromTable:self.model.dataID])
+    {
+        //说明已经收藏过
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"已经收藏过" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alert show];
-        //判断是否收藏过
-        GDDataManager * manager = [GDDataManager shareManager];
-        __block BOOL isHas = [manager findDataWithTitle:self.model.title];
         
-        if (isHas)
-        {
-            [button setImage:[UIImage imageNamed:@"iconfont-iconfontshoucang"] forState:UIControlStateNormal];
-            [manager deleteWith:self.model.title];
-        }
-        else
-        {
-            [button setImage:[UIImage imageNamed:@"iconfont-iconfontshoucang-2"] forState:UIControlStateSelected];
-            NSDictionary * dict = @{@"id":self.model.dataID,@"title":self.model.title,@"pic":self.model.pic,@"createtime":self.model.createtime,@"author":self.model.author};
-            [manager saveDic:dict];
-        }
-        isHas = !isHas;
-        
+        //iOS9更新之后的提示框
+        //        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"请不要重复收藏" preferredStyle:UIAlertControllerStyleAlert];
+        //        UIAlertAction * action1 =  [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        //        [alert addAction:action1];
+        //        [self presentViewController:alert animated:YES completion:nil];
     }
     else
     {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"已取消收藏" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-        [alert show];
+        //未曾收藏过,则插入一条数据
+        [manager insertDataModel:self.model];
+        
     }
 }
 

@@ -9,7 +9,7 @@
 #import "MyCollectionViewController.h"
 #import "ArticalTableViewCell.h"
 #import "ArticalModel.h"
-#import "GDDataManager.h"
+#import "DBManager.h"
 #import "ArticalDetailViewController.h"
 
 @interface MyCollectionViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -56,9 +56,10 @@
 #pragma mark - 获取数据库的数据
 -(void)getData
 {
-    GDDataManager * manager = [GDDataManager shareManager];
-    self.dataArray = [manager loadData];
-}
+    DBManager * manager = [DBManager defaultManager];
+    NSArray * array =[manager getData];
+    self.dataArray = [NSMutableArray arrayWithArray:array];
+    [_tableView reloadData];}
 
 #pragma mark - 创建tableView
 -(void)createTableView
@@ -110,25 +111,30 @@
     [self.selectArray removeObject:indexPath];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//实现cell的删除
+//设置编辑cell的类型
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GDDataManager * manager=[GDDataManager shareManager];
-    
-    ArticalModel * model = self.dataArray[indexPath.row];
-    //删除数据，先删除数据库中的数据
-    [manager deleteWith:model.title];
-    
-    //删除界面数组的
-    [self.dataArray removeObjectAtIndex:indexPath.row];
-    [self.selectArray removeAllObjects];
-    //刷新界面
-    [_tableView reloadData];
-    
-}
-//编辑类型
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     return UITableViewCellEditingStyleDelete;
+}
+//设置cell可编辑
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //删除的思路：1.先删除数据库中的数据，2.然后删除界面的cell，3.最后刷新界面
+    DBManager * manager = [DBManager defaultManager];
+    ArticalModel * model = self.dataArray[indexPath.row];
+    [manager deleteNameFromTable:model.dataID];
+    
+    //删除cell
+    [self.dataArray removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    //刷新界面
+    //[_tableView reloadData];
 }
 
 #pragma mark - 设置导航
@@ -164,26 +170,26 @@
     //在编辑期间被选择
     //_tableView.allowsMultipleSelectionDuringEditing = YES;
     
-    if (self.selectArray.count>0)
-    {
-        GDDataManager * manager=[GDDataManager shareManager];
-        for (int i=0; i<self.selectArray.count; i++)
-        {
-            NSIndexPath * path=self.selectArray[i];
-            ArticalModel * model=self.dataArray[path.row];
-            
-            [_dataArray replaceObjectAtIndex:path.row withObject:@""];
-            [manager deleteWith:model.title];
-            
-        }
-        [_dataArray removeObject:@""];
-        //数据源变的时候就要刷新数据,或者cell的格式变了得时候，这里还有reloadsection的，区的状态发生了变化或者是区里面的row方生了改变
-        [_tableView reloadData];
-        
-        [self.selectArray removeAllObjects];
-        
-        
-    }
+//    if (self.selectArray.count>0)
+//    {
+//        GDDataManager * manager=[GDDataManager shareManager];
+//        for (int i=0; i<self.selectArray.count; i++)
+//        {
+//            NSIndexPath * path=self.selectArray[i];
+//            ArticalModel * model=self.dataArray[path.row];
+//            
+//            [_dataArray replaceObjectAtIndex:path.row withObject:@""];
+//            [manager deleteWith:model.title];
+//            
+//        }
+//        [_dataArray removeObject:@""];
+//        //数据源变的时候就要刷新数据,或者cell的格式变了得时候，这里还有reloadsection的，区的状态发生了变化或者是区里面的row方生了改变
+//        [_tableView reloadData];
+//        
+//        [self.selectArray removeAllObjects];
+//        
+//        
+//    }
 }
 
 - (void)didReceiveMemoryWarning {

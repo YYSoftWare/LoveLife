@@ -85,7 +85,7 @@
     //设置代理
     _search.delegate = self;
     
-    //构造对象，配置查询参数
+    //构造请求对象，配置查询参数
     AMapWeatherSearchRequest * weatherRequest = [[AMapWeatherSearchRequest alloc]init];
     //设置城市
     weatherRequest.city = @"北京";
@@ -96,7 +96,7 @@
     [_search AMapWeatherSearch:weatherRequest];
 }
 
-//实时天气查询的回调函数
+//实现天气查询的回调函数
 -(void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response
 {
     //如果是实时天气
@@ -106,6 +106,7 @@
             return;
         }
         
+        //查找各项参数
         for (AMapLocalWeatherLive  * live in response.lives) {
             //获取天气各项指标,刷新界面
             _cityLabel.text = live.city;
@@ -141,7 +142,9 @@
     //如果是预报天气
     else
     {
-        
+        if (response.lives.count == 0) {
+            return;
+        }
     }
 }
 

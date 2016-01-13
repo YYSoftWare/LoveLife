@@ -169,6 +169,7 @@
 		DD8557C11C2A31E10094DD6B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8557C01C2A31E10094DD6B /* CoreTelephony.framework */; };
 		DD8557C31C2A31EB0094DD6B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8557C21C2A31EB0094DD6B /* libstdc++.dylib */; };
 		DD8557C51C2A31F90094DD6B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD8557C41C2A31F90094DD6B /* libz.dylib */; };
+		DD89661F1C4613DE00B7D891 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD89661E1C4613DE00B7D891 /* DBManager.m */; };
 		DD89B7811C3031F30092FE15 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD89B7801C3031F30092FE15 /* LoginViewController.m */; };
 		DD89B7861C3033DB0092FE15 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = DD89B7831C3033DB0092FE15 /* qq.png */; };
 		DD89B7871C3033DB0092FE15 /* sina.png in Resources */ = {isa = PBXBuildFile; fileRef = DD89B7841C3033DB0092FE15 /* sina.png */; };
@@ -541,6 +542,8 @@
 		DD8557C01C2A31E10094DD6B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		DD8557C21C2A31EB0094DD6B /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		DD8557C41C2A31F90094DD6B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DD89661D1C4613DE00B7D891 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		DD89661E1C4613DE00B7D891 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		DD89B77F1C3031F30092FE15 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		DD89B7801C3031F30092FE15 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DD89B7831C3033DB0092FE15 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
@@ -1194,6 +1197,8 @@
 		DD7A0FFF1C19C8A9004D67DE /* UITools */ = {
 			isa = PBXGroup;
 			children = (
+				DD89661D1C4613DE00B7D891 /* DBManager.h */,
+				DD89661E1C4613DE00B7D891 /* DBManager.m */,
 				DD73E33F1C2BD4C500752021 /* LZZLrcAnlisis.h */,
 				DD73E3401C2BD4C500752021 /* LZZLrcAnlisis.m */,
 				DD6B90D91C2DA683009C784E /* Drawer */,
@@ -2084,6 +2089,7 @@
 				DD4040501C186723007EA804 /* SDWebImageDecoder.m in Sources */,
 				DD753E7D1C204234000B4BAE /* MJRefreshAutoStateFooter.m in Sources */,
 				DD0FE7B11C30F4B3006085DF /* MapViewController.m in Sources */,
+				DD89661F1C4613DE00B7D891 /* DBManager.m in Sources */,
 				DD664E001C2CDBEA001FDEE1 /* FMDatabase.m in Sources */,
 				DD73E3411C2BD4C500752021 /* LZZLrcAnlisis.m in Sources */,
 				DD7A10061C19C8BC004D67DE /* ZLSwipeableView.m in Sources */,
